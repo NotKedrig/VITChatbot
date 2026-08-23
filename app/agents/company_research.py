@@ -204,7 +204,9 @@ def answer_vanilla(
 # LangGraph Node Wrapper (Phase 4)
 # ---------------------------------------------------------------------------
 
-def company_research_node(state: dict) -> dict:
+from langchain_core.runnables import RunnableConfig
+
+def company_research_node(state: dict, config: RunnableConfig | None = None) -> dict:
     """
     LangGraph node for the Company Research Agent.
     Wraps answer_with_rag to read from and write to the AgentState.
@@ -219,10 +221,16 @@ def company_research_node(state: dict) -> dict:
     metadata = {"node": "company_research"}
     
     try:
-        # We use a default collection name; in a real app this might be dynamic
+        from app.config import settings
+        
+        # Read from config if provided, otherwise default to settings
+        config_dict = config.get("configurable", {}) if config else {}
+        strategy = config_dict.get("chunking_strategy", settings.chunking_strategy)
+        collection_name = config_dict.get("collection_name", f"vitian_kb_{strategy}")
+
         rag_answer = answer_with_rag(
             question=user_text,
-            collection_name="test_kb_fixed_size", # Fallback to a safe default if not provided elsewhere
+            collection_name=collection_name,
             temperature=0.0,
             use_cache=True,
         )
