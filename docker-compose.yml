@@ -1,0 +1,77 @@
+# ============================================================
+# VITian Chatbot Local POC — Docker Compose
+# ============================================================
+# Services:
+#   postgres  — relational store for student state, chunk metadata, run metadata
+#   app       — FastAPI application (Phase 0: /health only)
+#
+# ChromaDB runs in LOCAL PERSISTENT DIRECTORY mode (not as its own container).
+# The ./chroma_data directory is mounted into the app container and Chroma reads/
+# writes it directly.  No Chroma server or extra network round-trips needed for a
+# single-replica POC.
+#
+# AWS services (S3, Lambda, EventBridge, SNS, Lex, IAM, CloudWatch) are NOT
+# referenced anywhere here.  See docs/future_aws_deployment.md for the
+# production deployment architecture.
+# ============================================================
+
+version: "3.9"
+
+services:
+  # ----------------------------------------------------------
+  # PostgreSQL — student state, chunk metadata, experiment run metadata
+  # ----------------------------------------------------------
+  postgres:
+    image: postgres:16-alpine
+    container_name: vitian_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: vitian
+      POSTGRES_PASSWORD: vitian_pw
+      POSTGRES_DB: vitian_chatbot
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U vitian -d vitian_chatbot"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ----------------------------------------------------------
+  # FastAPI application
+  # ----------------------------------------------------------
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: vitian_app
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      # These values must also be present in your .env file (or passed via
+      # docker-compose --env-file) for local development.
+      DATABASE_URL: postgresql://vitian:vitian_pw@postgres:5432/vitian_chatbot
+      CHROMA_PERSIST_DIR: /app/chroma_data
+      LOG_DIR: /app/logs
+      LOG_LEVEL: INFO
+    env_file:
+      - .env
+    volumes:
+      # Persist ChromaDB data and logs across container restarts
+      - ./chroma_data:/app/chroma_data
+      - ./logs:/app/logs
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+    driver: local
