@@ -3,12 +3,9 @@ from langgraph.graph import StateGraph, START, END
 
 from app.graph.state import AgentState
 from app.agents.supervisor import supervisor_node
-from app.agents.stubs import (
-    company_research_node,
-    planner_node,
-    progress_node,
-    notification_node
-)
+from app.agents.stubs import progress_node, notification_node
+from app.agents.company_research import company_research_node
+from app.agents.planner import planner_node
 
 def build_graph():
     """

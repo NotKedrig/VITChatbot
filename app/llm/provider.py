@@ -32,7 +32,9 @@ import os
 import time
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
-from typing import Any, Protocol
+from typing import Any, Protocol, Type
+
+from pydantic import BaseModel
 
 from app.llm.cache import LLMCache, make_cache_key
 from app.logging_config import log_llm_call
@@ -87,6 +89,7 @@ class LLMProvider(Protocol):
         prompt: str,
         temperature: float = 0.0,
         use_cache: bool = True,
+        response_schema: Type[BaseModel] | None = None,
     ) -> LLMResponse:
         ...
 
@@ -149,8 +152,11 @@ class GeminiProvider:
         prompt: str,
         temperature: float = 0.0,
         use_cache: bool = True,
+        response_schema: Type[BaseModel] | None = None,
     ) -> LLMResponse:
-        cache_key, prompt_hash = make_cache_key(prompt, self._model_name, temperature)
+        # Include schema name in cache key if provided
+        schema_suffix = f"_schema_{response_schema.__name__}" if response_schema else ""
+        cache_key, prompt_hash = make_cache_key(prompt + schema_suffix, self._model_name, temperature)
 
         # --- Cache lookup ---
         if use_cache:
@@ -173,10 +179,15 @@ class GeminiProvider:
         import google.generativeai as genai  # type: ignore
         from google.api_core.exceptions import ResourceExhausted
 
-        generation_config = genai.GenerationConfig(
-            temperature=temperature,
-            candidate_count=1,
-        )
+        generation_kwargs = {
+            "temperature": temperature,
+            "candidate_count": 1,
+        }
+        if response_schema is not None:
+            generation_kwargs["response_mime_type"] = "application/json"
+            generation_kwargs["response_schema"] = response_schema
+
+        generation_config = genai.GenerationConfig(**generation_kwargs)
 
         max_retries = 3
         base_delay = 12.0  # 12 seconds = 5 RPM
@@ -289,8 +300,10 @@ class OpenAIProvider:
         prompt: str,
         temperature: float = 0.0,
         use_cache: bool = True,
+        response_schema: Type[BaseModel] | None = None,
     ) -> LLMResponse:
-        _, prompt_hash = make_cache_key(prompt, self._model_name, temperature)
+        schema_suffix = f"_schema_{response_schema.__name__}" if response_schema else ""
+        _, prompt_hash = make_cache_key(prompt + schema_suffix, self._model_name, temperature)
 
         if use_cache:
             cached_resp = self._cache.get(
@@ -308,11 +321,16 @@ class OpenAIProvider:
                 )
 
         client = self._get_client()
-        completion = client.chat.completions.create(
-            model=self._model_name,
-            messages=[{"role": "user", "content": prompt}],
-            temperature=temperature,
-        )
+        kwargs = {
+            "model": self._model_name,
+            "messages": [{"role": "user", "content": prompt}],
+            "temperature": temperature,
+        }
+        if response_schema is not None:
+            # Note: Basic JSON object forcing for fallback providers.
+            kwargs["response_format"] = {"type": "json_object"}
+            
+        completion = client.chat.completions.create(**kwargs)
         text = completion.choices[0].message.content or ""
         model_version = completion.model or self._model_name
 

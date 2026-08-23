@@ -1,7 +1,7 @@
 from typing import Annotated, Sequence, TypedDict
 import operator
 
-class AgentState(TypedDict):
+class AgentState(TypedDict, total=False):
     """
     LangGraph state for the VITian Chatbot POC.
     """
@@ -10,3 +10,14 @@ class AgentState(TypedDict):
     
     # The string identifier of the next agent to route to, populated by the Supervisor
     next_agent: str
+    
+    # Student Context
+    student_id: str
+    target_companies: list[str]
+    skill_profile: dict[str, str]
+    available_time: str
+    
+    # Outputs / artifacts from specialized agents
+    current_plan: dict
+    citations: list[dict]
+    last_agent_output: str

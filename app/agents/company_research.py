@@ -198,3 +198,46 @@ def answer_vanilla(
         answer=llm_response.text,
         llm_response=llm_response,
     )
+
+# ---------------------------------------------------------------------------
+# LangGraph Node Wrapper (Phase 4)
+# ---------------------------------------------------------------------------
+
+def company_research_node(state: dict) -> dict:
+    """
+    LangGraph node for the Company Research Agent.
+    Wraps answer_with_rag to read from and write to the AgentState.
+    """
+    messages = state.get("messages", [])
+    if not messages:
+        return {}
+
+    user_text = messages[-1].get("content", "")
+    
+    try:
+        # We use a default collection name; in a real app this might be dynamic
+        rag_answer = answer_with_rag(
+            question=user_text,
+            collection_name="test_kb_fixed_size", # Fallback to a safe default if not provided elsewhere
+            temperature=0.0,
+            use_cache=True,
+        )
+        
+        agent_reply = rag_answer.answer
+        if rag_answer.citations:
+            from app.rag.citations import format_inline
+            agent_reply += "\n\n" + format_inline(rag_answer.retrieved_chunks)
+            
+        citations_dicts = [c.to_dict() for c in rag_answer.citations]
+        
+    except Exception as e:
+        logger.error(f"Company research node failed: {e}")
+        agent_reply = "I'm sorry, I couldn't search the knowledge base at this time."
+        citations_dicts = []
+
+    return {
+        "messages": [{"role": "agent", "content": agent_reply}],
+        "citations": citations_dicts,
+        "last_agent_output": agent_reply
+    }
+

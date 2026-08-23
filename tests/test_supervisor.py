@@ -28,19 +28,25 @@ def test_rule_router_accuracy(utterance: str, expected: str):
 # Test LangGraph Wiring (Mocked LLM)
 # ---------------------------------------------------------------------------
 
+@patch("app.graph.workflow.planner_node")
 @patch("app.agents.supervisor.get_provider")
-def test_langgraph_routing_with_mock(mock_get_provider):
+def test_langgraph_routing_with_mock(mock_get_provider, mock_planner_node):
     """
     Verify that the deterministic graph wiring works without burning API quota.
     We mock the provider to return 'planner' and ensure the graph routes there.
     """
-    # Setup mock provider response
+    # Setup mock provider response for supervisor
     mock_provider = MagicMock()
     mock_response = MagicMock()
     mock_response.text = "planner"
     mock_response.cached = True
     mock_provider.complete.return_value = mock_response
     mock_get_provider.return_value = mock_provider
+
+    # Setup mock planner node to simulate successful routing
+    def dummy_planner(state):
+        return {"messages": [{"role": "agent", "content": "[STUB] Planner Agent received the request."}], "next_agent": "planner"}
+    mock_planner_node.side_effect = dummy_planner
 
     graph = build_graph()
     
@@ -57,7 +63,7 @@ def test_langgraph_routing_with_mock(mock_get_provider):
     # Verify the supervisor correctly updated the next_agent state
     assert final_state["next_agent"] == "planner"
     
-    # Verify the downstream stub (planner_node) was executed
+    # Verify the downstream mock (planner_node) was executed
     messages = final_state.get("messages", [])
     assert len(messages) == 2
     assert "[STUB] Planner Agent" in messages[-1]["content"]
