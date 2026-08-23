@@ -4,7 +4,7 @@ from langgraph.checkpoint.memory import MemorySaver
 
 from app.graph.state import AgentState
 from app.agents.supervisor import supervisor_node
-from app.agents.stubs import notification_node
+from app.agents.notification import notification_node
 from app.agents.progress import progress_node
 from app.agents.company_research import company_research_node
 from app.agents.planner import planner_node

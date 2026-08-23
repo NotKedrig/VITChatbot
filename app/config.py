@@ -171,6 +171,15 @@ class Settings(BaseSettings):
     )
 
     # ------------------------------------------------------------------
+    # Timezone
+    # ------------------------------------------------------------------
+
+    app_timezone: str = Field(
+        default="UTC",
+        description="Timezone used for interpreting natural language times and scheduling.",
+    )
+
+    # ------------------------------------------------------------------
     # Helpers
     # ------------------------------------------------------------------
 

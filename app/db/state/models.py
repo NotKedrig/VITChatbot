@@ -193,3 +193,33 @@ class PlanRevisionLog(Base):
     reason = Column(Text, nullable=False)
     
     student = relationship("StudentProfile", backref="plan_revisions")
+
+# ---------------------------------------------------------------------------
+# Notifications
+# ---------------------------------------------------------------------------
+
+class Notification(Base):
+    """
+    Tracks scheduled and dispatched local notifications.
+    """
+    __tablename__ = "notifications"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    student_id = Column(
+        String(255),
+        ForeignKey("student_profiles.student_id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    message = Column(Text, nullable=False)
+    due_at = Column(DateTime(timezone=True), nullable=False)
+    status = Column(String(64), nullable=False, default="pending") # pending, dispatched
+    
+    created_at = Column(
+        DateTime(timezone=True),
+        nullable=False,
+        default=lambda: datetime.now(timezone.utc),
+    )
+    dispatched_at = Column(DateTime(timezone=True), nullable=True)
+    
+    student = relationship("StudentProfile", backref="notifications")
