@@ -21,6 +21,8 @@ from sqlalchemy import (
     UniqueConstraint,
     ForeignKey,
     Index,
+    JSON,
+    Boolean,
 )
 from sqlalchemy.orm import DeclarativeBase, relationship
 
@@ -116,3 +118,78 @@ class DocumentChunk(Base):
             f"<DocumentChunk chunk_id={self.chunk_id!r} "
             f"strategy={self.chunking_strategy!r}>"
         )
+
+
+# ---------------------------------------------------------------------------
+# Student State & Progress
+# ---------------------------------------------------------------------------
+
+class StudentProfile(Base):
+    """
+    Tracks the student's context and persistent skill profile across the application.
+    """
+    __tablename__ = "student_profiles"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    student_id = Column(String(255), nullable=False, unique=True, index=True)
+    target_companies = Column(JSON, nullable=True) # List of strings
+    skill_profile = Column(JSON, nullable=True)    # Dict of topic -> "weak", "mastered", etc.
+    available_time = Column(String(255), nullable=True)
+    
+    updated_at = Column(
+        DateTime(timezone=True),
+        nullable=False,
+        default=lambda: datetime.now(timezone.utc),
+        onupdate=lambda: datetime.now(timezone.utc),
+    )
+
+
+class PerformanceLog(Base):
+    """
+    Tracks individual test/mock scores reported by the student.
+    """
+    __tablename__ = "performance_logs"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    student_id = Column(
+        String(255),
+        ForeignKey("student_profiles.student_id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    topic = Column(String(255), nullable=False)
+    score = Column(Integer, nullable=False) # 0-100 percentage
+    timestamp = Column(
+        DateTime(timezone=True),
+        nullable=False,
+        default=lambda: datetime.now(timezone.utc),
+    )
+    is_struggle = Column(Boolean, nullable=False, default=False)
+    is_mastery = Column(Boolean, nullable=False, default=False)
+    
+    student = relationship("StudentProfile", backref="performance_logs")
+
+
+class PlanRevisionLog(Base):
+    """
+    Audit log of adaptive plan revisions.
+    """
+    __tablename__ = "plan_revision_logs"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    student_id = Column(
+        String(255),
+        ForeignKey("student_profiles.student_id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    timestamp = Column(
+        DateTime(timezone=True),
+        nullable=False,
+        default=lambda: datetime.now(timezone.utc),
+    )
+    triggering_signal = Column(String(255), nullable=False) # e.g. "struggle", "mastery"
+    affected_topic = Column(String(255), nullable=False)
+    reason = Column(Text, nullable=False)
+    
+    student = relationship("StudentProfile", backref="plan_revisions")

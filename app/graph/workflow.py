@@ -4,7 +4,8 @@ from langgraph.checkpoint.memory import MemorySaver
 
 from app.graph.state import AgentState
 from app.agents.supervisor import supervisor_node
-from app.agents.stubs import progress_node, notification_node
+from app.agents.stubs import notification_node
+from app.agents.progress import progress_node
 from app.agents.company_research import company_research_node
 from app.agents.planner import planner_node
 
@@ -45,10 +46,23 @@ def build_graph():
         }
     )
 
-    # All specialized agents lead to END (for now, simple one-shot turns)
+    # Adaptive routing: Progress -> Planner (if signal detected)
+    def route_from_progress(state: AgentState) -> str:
+        if state.get("progress_signal") in ["struggle", "mastery"]:
+            return "planner"
+        return END
+
+    workflow.add_conditional_edges(
+        "progress",
+        route_from_progress,
+        {
+            "planner": "planner",
+            END: END
+        }
+    )
+
     workflow.add_edge("company_research", END)
     workflow.add_edge("planner", END)
-    workflow.add_edge("progress", END)
     workflow.add_edge("notification", END)
 
     return workflow.compile(checkpointer=_memory_saver)

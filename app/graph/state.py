@@ -22,5 +22,9 @@ class AgentState(TypedDict, total=False):
     citations: list[dict]
     last_agent_output: str
     
+    # Progress routing signals
+    progress_signal: str # e.g. "struggle", "mastery", "none"
+    affected_topic: str
+    
     # Metadata for experimental analysis (latency, model, tokens, etc.)
     runtime_metadata: Annotated[Sequence[dict], operator.add]
