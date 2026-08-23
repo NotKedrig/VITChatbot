@@ -1,1 +1,1 @@
-& ".\.venv\Scripts\python.exe" -m pytest tests/test_health.py -v --tb=short
+& ".\.venv\Scripts\python.exe" -m pytest tests/ -v --tb=short

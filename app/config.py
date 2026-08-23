@@ -10,6 +10,9 @@ ONLY as future production deployment options in docs/future_aws_deployment.md.
 """
 
 import os
+from dotenv import load_dotenv
+load_dotenv()  # Ensure .env is populated into os.environ
+
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from pydantic import Field
 
@@ -34,16 +37,30 @@ class Settings(BaseSettings):
     # ------------------------------------------------------------------
 
     llm_provider: str = Field(
-        default="openai",
+        default="google",
         description=(
-            "Name of the LLM provider to use.  Supported values in later phases: "
-            "'openai', 'anthropic', 'google', 'ollama'.  The provider abstraction "
-            "lives in app/llm/provider.py."
+            "Name of the LLM provider to use.  Supported values: "
+            "'google' (Gemini via google-generativeai), 'openai', 'ollama'.  "
+            "The provider abstraction lives in app/llm/provider.py."
         ),
     )
 
+    llm_base_url: str = Field(
+        default="",
+        description=(
+            "Optional base URL override (e.g. 'http://localhost:11434' for Ollama).  "
+            "Leave empty to use the provider's default endpoint."
+        ),
+    )
+
+    top_k_retrieval: int = Field(
+        default=5,
+        gt=0,
+        description="Number of passages to retrieve per query in RAG systems.",
+    )
+
     llm_api_key_env: str = Field(
-        default="OPENAI_API_KEY",
+        default="GEMINI_API_KEY",
         description=(
             "Name of the environment variable that holds the provider's API key.  "
             "The application reads os.environ[llm_api_key_env] at runtime; the key "
@@ -52,9 +69,9 @@ class Settings(BaseSettings):
     )
 
     llm_model_name: str = Field(
-        default="gpt-4o-2024-05-13",
+        default="gemini-3.6-flash",
         description=(
-            "Fully-qualified model name / version string (e.g. 'gpt-4o-2024-05-13').  "
+            "Fully-qualified model name / version string (e.g. 'gemini-3.6-flash').  "
             "Recorded verbatim in every results CSV row and LLM-call log entry to "
             "ensure reproducibility."
         ),

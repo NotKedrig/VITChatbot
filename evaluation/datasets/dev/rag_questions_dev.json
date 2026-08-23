@@ -1,0 +1,62 @@
+[
+  {
+    "question_id": "dev_001",
+    "question": "What is the minimum CGPA required to apply for a position at NovaTech?",
+    "expected_facts": ["7.0 on a 10-point scale", "7.0"],
+    "gold_source_doc_ids": ["novatech_recruitment_guide"]
+  },
+  {
+    "question_id": "dev_002",
+    "question": "How many interview rounds does Meridian FinTech conduct for software engineers?",
+    "expected_facts": ["4 rounds", "Round 1", "Round 2", "Round 3", "Round 4", "four rounds"],
+    "gold_source_doc_ids": ["meridian_fintech_hiring_handbook"]
+  },
+  {
+    "question_id": "dev_003",
+    "question": "Which programming language is expected for embedded firmware roles at Aether Robotics?",
+    "expected_facts": ["C++", "C/C++", "C"],
+    "gold_source_doc_ids": ["aether_robotics_tech_prep"]
+  },
+  {
+    "question_id": "dev_004",
+    "question": "How should I structure the bullet points for projects on my resume?",
+    "expected_facts": ["what you built", "quantifiable outcome", "technical challenge"],
+    "gold_source_doc_ids": ["resume_and_communication_guide"]
+  },
+  {
+    "question_id": "dev_005",
+    "question": "What kind of topics are usually covered in the aptitude tests for campus placements?",
+    "expected_facts": ["Quantitative Aptitude", "Logical Reasoning", "Verbal Ability", "Data Interpretation", "Reading Comprehension", "Vocabulary", "Grammar"],
+    "gold_source_doc_ids": ["general_aptitude_prep_guide"]
+  },
+  {
+    "question_id": "dev_006",
+    "question": "Is competitive programming necessary for getting hired at NovaTech?",
+    "expected_facts": ["not mentioned", "no information", "not explicitly stated"],
+    "gold_source_doc_ids": ["novatech_interview_prep_guide"]
+  },
+  {
+    "question_id": "dev_007",
+    "question": "What is the compensation or salary offered by NovaTech?",
+    "expected_facts": ["8.5 LPA", "9.0 LPA", "10.0 LPA", "45,000", "performance bonus"],
+    "gold_source_doc_ids": ["novatech_offer_and_onboarding", "novatech_recruitment_guide"]
+  },
+  {
+    "question_id": "dev_008",
+    "question": "What topics do they focus on in the system design round at Meridian FinTech?",
+    "expected_facts": ["data flow", "API boundaries", "persistence choices", "overall architecture", "database schema design", "idempotency keys", "exponential backoff", "load balancers"],
+    "gold_source_doc_ids": ["meridian_fintech_system_design_guide", "meridian_fintech_role_details"]
+  },
+  {
+    "question_id": "dev_009",
+    "question": "Are students with backlogs allowed to sit for Aether Robotics placements?",
+    "expected_facts": ["Zero active backlogs", "Prior cleared backlogs require a written explanation"],
+    "gold_source_doc_ids": ["aether_robotics_placement_faq"]
+  },
+  {
+    "question_id": "dev_010",
+    "question": "What happens if I miss the pre-placement talk for Meridian FinTech?",
+    "expected_facts": ["mandatory", "disqualified"],
+    "gold_source_doc_ids": ["meridian_fintech_hiring_handbook"]
+  }
+]
