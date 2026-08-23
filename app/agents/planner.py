@@ -1,6 +1,7 @@
 import json
 import logging
 from pathlib import Path
+import time
 from pydantic import BaseModel, Field
 
 from app.graph.state import AgentState
@@ -63,6 +64,8 @@ def planner_node(state: AgentState) -> dict:
     )
 
     provider = get_provider()
+    start_time = time.perf_counter()
+    metadata = {"node": "planner"}
     
     try:
         llm_response = provider.complete(
@@ -83,15 +86,28 @@ def planner_node(state: AgentState) -> dict:
             agent_reply += f"   *Why*: {task.get('rationale')}\n\n"
             
         logger.info("Planner generated a study plan successfully.", extra={"cached": llm_response.cached})
+        
+        metadata.update({
+            "latency": time.perf_counter() - start_time,
+            "model_name": llm_response.model_name,
+            "model_version": llm_response.model_version,
+            "cached": llm_response.cached,
+        })
 
     except Exception as e:
         logger.error(f"Planner failed to generate plan: {e}")
         plan_data = {"tasks": [], "summary": "Failed to generate plan."}
         agent_reply = "I'm sorry, I encountered an error while trying to build your study plan."
+        
+        metadata.update({
+            "latency": time.perf_counter() - start_time,
+            "error": str(e)
+        })
 
     # Return new state variables
     return {
         "messages": [{"role": "agent", "content": agent_reply.strip()}],
         "current_plan": plan_data,
-        "last_agent_output": agent_reply.strip()
+        "last_agent_output": agent_reply.strip(),
+        "runtime_metadata": [metadata]
     }

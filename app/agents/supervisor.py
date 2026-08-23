@@ -1,5 +1,6 @@
 import logging
 from pathlib import Path
+import time
 from app.graph.state import AgentState
 from app.llm.provider import get_provider
 
@@ -31,32 +32,47 @@ def supervisor_node(state: AgentState) -> dict:
     prompt = template.format(user_message=user_text)
 
     provider = get_provider()
-    
-    # We use temperature 0 for deterministic routing
-    # use_cache=True is critical for minimizing API calls during development
-    llm_response = provider.complete(
-        prompt=prompt,
-        temperature=0.0,
-        use_cache=True,
-    )
-
-    decision = llm_response.text.strip().lower()
-    
-    # Clean up markdown if the LLM hallucinated formatting (e.g. `company_research`)
-    decision = decision.strip("`'\" \n")
-    
-    valid_agents = {"company_research", "planner", "progress", "notification"}
-    if decision not in valid_agents:
-        logger.error(f"Supervisor produced invalid routing decision: {decision}. Defaulting to company_research.")
-        decision = "company_research"
+    start_time = time.perf_counter()
+    try:
+        llm_response = provider.complete(
+            prompt=prompt,
+            temperature=0.0,
+            use_cache=True,
+        )
+        decision = llm_response.text.strip().lower()
+        decision = decision.strip("`'\" \n")
+        
+        valid_agents = {"company_research", "planner", "progress", "notification"}
+        if decision not in valid_agents:
+            logger.error(f"Supervisor produced invalid routing decision: {decision}. Defaulting to company_research.")
+            decision = "company_research"
+            
+        metadata = {
+            "node": "supervisor",
+            "latency": time.perf_counter() - start_time,
+            "model_name": llm_response.model_name,
+            "model_version": llm_response.model_version,
+            "cached": llm_response.cached,
+        }
+            
+    except Exception as e:
+        logger.error(f"Supervisor provider call failed: {e}")
+        decision = "company_research"  # Safe fallback
+        metadata = {
+            "node": "supervisor",
+            "latency": time.perf_counter() - start_time,
+            "error": str(e)
+        }
 
     logger.info(
         "Supervisor routing decision",
         extra={
             "user_text": user_text[:50],
             "decision": decision,
-            "cached": llm_response.cached,
         }
     )
 
-    return {"next_agent": decision}
+    return {
+        "next_agent": decision,
+        "runtime_metadata": [metadata]
+    }

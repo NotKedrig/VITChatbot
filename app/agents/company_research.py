@@ -16,7 +16,8 @@ from __future__ import annotations
 import logging
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any
+from typing import Any, Optional
+import time
 
 from app.rag.retriever import RetrievedChunk, retrieve
 from app.rag.citations import Citation, format_citations, format_inline
@@ -214,6 +215,9 @@ def company_research_node(state: dict) -> dict:
 
     user_text = messages[-1].get("content", "")
     
+    start_time = time.perf_counter()
+    metadata = {"node": "company_research"}
+    
     try:
         # We use a default collection name; in a real app this might be dynamic
         rag_answer = answer_with_rag(
@@ -230,14 +234,26 @@ def company_research_node(state: dict) -> dict:
             
         citations_dicts = [c.to_dict() for c in rag_answer.citations]
         
+        metadata.update({
+            "latency": time.perf_counter() - start_time,
+            "model_name": rag_answer.llm_response.model_name if hasattr(rag_answer, 'llm_response') else "unknown",
+            "model_version": rag_answer.llm_response.model_version if hasattr(rag_answer, 'llm_response') else "unknown",
+            "cached": rag_answer.llm_response.cached if hasattr(rag_answer, 'llm_response') else False,
+        })
+        
     except Exception as e:
         logger.error(f"Company research node failed: {e}")
         agent_reply = "I'm sorry, I couldn't search the knowledge base at this time."
         citations_dicts = []
+        metadata.update({
+            "latency": time.perf_counter() - start_time,
+            "error": str(e)
+        })
 
     return {
         "messages": [{"role": "agent", "content": agent_reply}],
         "citations": citations_dicts,
-        "last_agent_output": agent_reply
+        "last_agent_output": agent_reply,
+        "runtime_metadata": [metadata]
     }
 

@@ -40,6 +40,8 @@ def test_langgraph_routing_with_mock(mock_get_provider, mock_planner_node):
     mock_response = MagicMock()
     mock_response.text = "planner"
     mock_response.cached = True
+    mock_response.model_name = "mock-model"
+    mock_response.model_version = "1.0"
     mock_provider.complete.return_value = mock_response
     mock_get_provider.return_value = mock_provider
 
@@ -55,7 +57,10 @@ def test_langgraph_routing_with_mock(mock_get_provider, mock_planner_node):
     }
 
     # Execute graph
-    final_state = graph.invoke(initial_state)
+    final_state = graph.invoke(
+        initial_state, 
+        config={"configurable": {"thread_id": "test_routing_mock"}}
+    )
 
     # Verify provider was called
     mock_provider.complete.assert_called_once()

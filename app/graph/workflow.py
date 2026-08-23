@@ -1,11 +1,15 @@
 from typing import Literal
 from langgraph.graph import StateGraph, START, END
+from langgraph.checkpoint.memory import MemorySaver
 
 from app.graph.state import AgentState
 from app.agents.supervisor import supervisor_node
 from app.agents.stubs import progress_node, notification_node
 from app.agents.company_research import company_research_node
 from app.agents.planner import planner_node
+
+# Singleton checkpointer to preserve multi-turn state across the app's lifetime
+_memory_saver = MemorySaver()
 
 def build_graph():
     """
@@ -47,4 +51,4 @@ def build_graph():
     workflow.add_edge("progress", END)
     workflow.add_edge("notification", END)
 
-    return workflow.compile()
+    return workflow.compile(checkpointer=_memory_saver)

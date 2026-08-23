@@ -21,3 +21,6 @@ class AgentState(TypedDict, total=False):
     current_plan: dict
     citations: list[dict]
     last_agent_output: str
+    
+    # Metadata for experimental analysis (latency, model, tokens, etc.)
+    runtime_metadata: Annotated[Sequence[dict], operator.add]
