@@ -1,0 +1,106 @@
+[
+  {
+    "query_id": "dev_q1",
+    "query": "What are the eligibility requirements for Meridian Financial?",
+    "gold_sources": [
+      {
+        "doc_id": "meridian_fintech_hiring_handbook",
+        "snippet": "Minimum CGPA: 7.5 on a 10-point scale"
+      },
+      {
+        "doc_id": "meridian_fintech_hiring_handbook",
+        "snippet": "Branches: Computer Science, Information Technology, and Mathematics"
+      }
+    ]
+  },
+  {
+    "query_id": "dev_q2",
+    "query": "Does Aether Robotics allow active backlogs?",
+    "gold_sources": [
+      {
+        "doc_id": "aether_robotics_placement_faq",
+        "snippet": "Does Aether allow active backlogs? No. Candidates must have zero active backlogs"
+      }
+    ]
+  },
+  {
+    "query_id": "dev_q3",
+    "query": "What programming languages are tested by Aether Robotics?",
+    "gold_sources": [
+      {
+        "doc_id": "aether_robotics_tech_prep",
+        "snippet": "Candidates can choose either C++ or Python"
+      }
+    ]
+  },
+  {
+    "query_id": "dev_q4",
+    "query": "How many questions are in the Novatech aptitude test?",
+    "gold_sources": [
+      {
+        "doc_id": "novatech_recruitment_guide",
+        "snippet": "20 questions (30 minutes)"
+      }
+    ]
+  },
+  {
+    "query_id": "dev_q5",
+    "query": "What is the timeline for Novatech onboarding?",
+    "gold_sources": [
+      {
+        "doc_id": "novatech_offer_and_onboarding",
+        "snippet": "Typically takes 2-4 weeks"
+      }
+    ]
+  },
+  {
+    "query_id": "dev_q6",
+    "query": "What is the focus of the Meridian system design round?",
+    "gold_sources": [
+      {
+        "doc_id": "meridian_fintech_system_design_guide",
+        "snippet": "Focuses heavily on scalability, consistency, and database choices for high-throughput"
+      }
+    ]
+  },
+  {
+    "query_id": "dev_q7",
+    "query": "What topics are covered in the general aptitude guide?",
+    "gold_sources": [
+      {
+        "doc_id": "general_aptitude_prep_guide",
+        "snippet": "Quantitative Aptitude, Logical Reasoning, and Verbal Ability"
+      }
+    ]
+  },
+  {
+    "query_id": "dev_q8",
+    "query": "How to structure a resume for these companies?",
+    "gold_sources": [
+      {
+        "doc_id": "resume_and_communication_guide",
+        "snippet": "Use the XYZ formula: Accomplished [X] as measured by [Y], by doing [Z]"
+      }
+    ]
+  },
+  {
+    "query_id": "dev_q9",
+    "query": "What operating systems concepts are asked by Aether?",
+    "gold_sources": [
+      {
+        "doc_id": "aether_robotics_tech_prep",
+        "snippet": "memory management, interrupt handling, and mutex/semaphore concepts"
+      }
+    ]
+  },
+  {
+    "query_id": "dev_q10",
+    "query": "Are there any real-time OS questions?",
+    "gold_sources": [
+      {
+        "doc_id": "aether_robotics_tech_prep",
+        "snippet": "Familiarity with RTOS concepts (like FreeRTOS) is a significant plus"
+      }
+    ]
+  }
+]

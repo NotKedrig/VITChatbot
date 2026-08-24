@@ -1,0 +1,302 @@
+[
+  {
+    "query_id": "q_01",
+    "query": "Can you explain the details regarding top 25 candidates (per co?",
+    "gold_sources": [
+      {
+        "doc_id": "aether_robotics_placement_faq",
+        "snippet": "Top 25 candidates (per college, across all three roles) proceed."
+      }
+    ]
+  },
+  {
+    "query_id": "q_02",
+    "query": "Can you explain the details regarding - discussion of a candida?",
+    "gold_sources": [
+      {
+        "doc_id": "aether_robotics_placement_faq",
+        "snippet": "- Discussion of a candidate's computer-vision or robotics project."
+      }
+    ]
+  },
+  {
+    "query_id": "q_03",
+    "query": "Can you explain the details regarding - one go or python coding?",
+    "gold_sources": [
+      {
+        "doc_id": "aether_robotics_placement_faq",
+        "snippet": "- One Go or Python coding problem (candidates may choose language)."
+      }
+    ]
+  },
+  {
+    "query_id": "q_04",
+    "query": "Can you explain the details regarding - write a simple particle?",
+    "gold_sources": [
+      {
+        "doc_id": "aether_robotics_tech_prep",
+        "snippet": "- Write a simple particle filter for 1D localisation."
+      }
+    ]
+  },
+  {
+    "query_id": "q_05",
+    "query": "Can you explain the details regarding - implement a basic convo?",
+    "gold_sources": [
+      {
+        "doc_id": "aether_robotics_tech_prep",
+        "snippet": "- Implement a basic convolution operation for image processing."
+      }
+    ]
+  },
+  {
+    "query_id": "q_06",
+    "query": "Can you explain the details regarding - concurrency: goroutines?",
+    "gold_sources": [
+      {
+        "doc_id": "aether_robotics_tech_prep",
+        "snippet": "- Concurrency: goroutines and channels in Go; or Python asyncio; thread safety."
+      }
+    ]
+  },
+  {
+    "query_id": "q_07",
+    "query": "Can you explain the details regarding - ratio and proportion: d?",
+    "gold_sources": [
+      {
+        "doc_id": "general_aptitude_prep_guide",
+        "snippet": "- Ratio and proportion: direct and inverse variation, mixture and alligation."
+      }
+    ]
+  },
+  {
+    "query_id": "q_08",
+    "query": "Can you explain the details regarding **time management tip**:?",
+    "gold_sources": [
+      {
+        "doc_id": "general_aptitude_prep_guide",
+        "snippet": "**Time management tip**: Number-theory problems appear simple but can be time-consuming."
+      }
+    ]
+  },
+  {
+    "query_id": "q_09",
+    "query": "Can you explain the details regarding skip and return if a prob?",
+    "gold_sources": [
+      {
+        "doc_id": "general_aptitude_prep_guide",
+        "snippet": "Skip and return if a problem takes more than 90 seconds."
+      }
+    ]
+  },
+  {
+    "query_id": "q_10",
+    "query": "Can you explain the details regarding other branches are not co?",
+    "gold_sources": [
+      {
+        "doc_id": "meridian_fintech_hiring_handbook",
+        "snippet": "Other branches are not considered for engineering roles."
+      }
+    ]
+  },
+  {
+    "query_id": "q_11",
+    "query": "Can you explain the details regarding mft does not recruit from?",
+    "gold_sources": [
+      {
+        "doc_id": "meridian_fintech_hiring_handbook",
+        "snippet": "MFT does not recruit from MCA or MSc programmes for engineering roles."
+      }
+    ]
+  },
+  {
+    "query_id": "q_12",
+    "query": "Can you explain the details regarding **total ctc**: \u20b912 lpa (\u20b9?",
+    "gold_sources": [
+      {
+        "doc_id": "meridian_fintech_hiring_handbook",
+        "snippet": "**Total CTC**: \u20b912 LPA (\u20b910 LPA fixed + \u20b92 LPA variable, performance-linked)."
+      }
+    ]
+  },
+  {
+    "query_id": "q_13",
+    "query": "Can you explain the details regarding - **payments gateway**: u?",
+    "gold_sources": [
+      {
+        "doc_id": "meridian_fintech_role_details",
+        "snippet": "- **Payments Gateway**: UPI and card payment processing, reconciliation, chargebacks."
+      }
+    ]
+  },
+  {
+    "query_id": "q_14",
+    "query": "Can you explain the details regarding - **risk & fraud**: real-?",
+    "gold_sources": [
+      {
+        "doc_id": "meridian_fintech_role_details",
+        "snippet": "- **Risk & Fraud**: real-time transaction scoring, rule engines, alert management."
+      }
+    ]
+  },
+  {
+    "query_id": "q_15",
+    "query": "Can you explain the details regarding - **platform**: shared li?",
+    "gold_sources": [
+      {
+        "doc_id": "meridian_fintech_role_details",
+        "snippet": "- **Platform**: shared libraries, API gateway, developer experience tooling."
+      }
+    ]
+  },
+  {
+    "query_id": "q_16",
+    "query": "Can you explain the details regarding the system design session?",
+    "gold_sources": [
+      {
+        "doc_id": "meridian_fintech_system_design_guide",
+        "snippet": "The system design session is Session B of Round 3 (45 minutes)."
+      }
+    ]
+  },
+  {
+    "query_id": "q_17",
+    "query": "Can you explain the details regarding candidates who ask no cla?",
+    "gold_sources": [
+      {
+        "doc_id": "meridian_fintech_system_design_guide",
+        "snippet": "Candidates who ask no clarifying questions are scored lower."
+      }
+    ]
+  },
+  {
+    "query_id": "q_18",
+    "query": "Can you explain the details regarding - backend services (monol?",
+    "gold_sources": [
+      {
+        "doc_id": "meridian_fintech_system_design_guide",
+        "snippet": "- Backend services (monolith or microservices, depending on the problem)."
+      }
+    ]
+  },
+  {
+    "query_id": "q_19",
+    "query": "Can you explain the details regarding - **linked lists**: rever?",
+    "gold_sources": [
+      {
+        "doc_id": "novatech_interview_prep_guide",
+        "snippet": "- **Linked lists**: reversal, cycle detection (Floyd's algorithm), merging sorted lists."
+      }
+    ]
+  },
+  {
+    "query_id": "q_20",
+    "query": "Can you explain the details regarding - **heaps and priority qu?",
+    "gold_sources": [
+      {
+        "doc_id": "novatech_interview_prep_guide",
+        "snippet": "- **Heaps and priority queues**: kth-largest element, merge k sorted arrays."
+      }
+    ]
+  },
+  {
+    "query_id": "q_21",
+    "query": "Can you explain the details regarding - **hashing**: frequency?",
+    "gold_sources": [
+      {
+        "doc_id": "novatech_interview_prep_guide",
+        "snippet": "- **Hashing**: frequency counting, two-sum variants, subarray with given sum."
+      }
+    ]
+  },
+  {
+    "query_id": "q_22",
+    "query": "Can you explain the details regarding - role title and grade (s?",
+    "gold_sources": [
+      {
+        "doc_id": "novatech_offer_and_onboarding",
+        "snippet": "- Role title and grade (SE-P Grade 1, SE-Plat Grade 1, or GTD)."
+      }
+    ]
+  },
+  {
+    "query_id": "q_23",
+    "query": "Can you explain the details regarding - reporting location (pun?",
+    "gold_sources": [
+      {
+        "doc_id": "novatech_offer_and_onboarding",
+        "snippet": "- Reporting location (Pune or Hyderabad) and expected start date."
+      }
+    ]
+  },
+  {
+    "query_id": "q_24",
+    "query": "Can you explain the details regarding log in using your registe?",
+    "gold_sources": [
+      {
+        "doc_id": "novatech_offer_and_onboarding",
+        "snippet": "Log in using your registered email and the one-time password sent separately."
+      }
+    ]
+  },
+  {
+    "query_id": "q_25",
+    "query": "Can you explain the details regarding - **active backlogs**: ze?",
+    "gold_sources": [
+      {
+        "doc_id": "novatech_recruitment_guide",
+        "snippet": "- **Active backlogs**: Zero active backlogs at the time of the drive."
+      }
+    ]
+  },
+  {
+    "query_id": "q_26",
+    "query": "Can you explain the details regarding candidates with a demonst?",
+    "gold_sources": [
+      {
+        "doc_id": "novatech_recruitment_guide",
+        "snippet": "Candidates with a demonstrated interest in DevOps or systems programming are preferred."
+      }
+    ]
+  },
+  {
+    "query_id": "q_27",
+    "query": "Can you explain the details regarding - coding: 2 problems (one?",
+    "gold_sources": [
+      {
+        "doc_id": "novatech_recruitment_guide",
+        "snippet": "- Coding: 2 problems (one easy, one medium by LeetCode classification), 20 minutes."
+      }
+    ]
+  },
+  {
+    "query_id": "q_28",
+    "query": "Can you explain the details regarding - github profile url \u2014 ma?",
+    "gold_sources": [
+      {
+        "doc_id": "resume_and_communication_guide",
+        "snippet": "- GitHub profile URL \u2014 mandatory if you have public code repositories."
+      }
+    ]
+  },
+  {
+    "query_id": "q_29",
+    "query": "Can you explain the details regarding - **frameworks and librar?",
+    "gold_sources": [
+      {
+        "doc_id": "resume_and_communication_guide",
+        "snippet": "- **Frameworks and Libraries**: Spring Boot, React, Django, TensorFlow, ROS 2, etc."
+      }
+    ]
+  },
+  {
+    "query_id": "q_30",
+    "query": "Can you explain the details regarding - **tools**: git, docker,?",
+    "gold_sources": [
+      {
+        "doc_id": "resume_and_communication_guide",
+        "snippet": "- **Tools**: Git, Docker, PostgreSQL, Redis, Jupyter, etc."
+      }
+    ]
+  }
+]
