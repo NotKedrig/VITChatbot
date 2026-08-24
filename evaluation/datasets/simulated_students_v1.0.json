@@ -1,0 +1,902 @@
+[
+  {
+    "student_id": "sim_student_dev_1",
+    "student_seed": 121958,
+    "topic_universe": [
+      "DSA",
+      "System Design",
+      "Aptitude"
+    ],
+    "initial_skills": {
+      "DSA": 15,
+      "System Design": 14,
+      "Aptitude": 43
+    },
+    "available_time": 28,
+    "parameters": {
+      "skill_dist": "Beta(2,5)*100",
+      "time_dist": "Uniform(10,30)",
+      "priority_hours": {
+        "High": 3,
+        "Medium": 2,
+        "Low": 1
+      },
+      "difficulty_dist": "Uniform(40,80)",
+      "noise_dist": "Normal(0,5)",
+      "skill_update_multiplier": 2.5,
+      "mastery_threshold": 85,
+      "struggle_threshold": 50
+    },
+    "simulation_model_version": "1.0"
+  },
+  {
+    "student_id": "sim_student_dev_2",
+    "student_seed": 199041,
+    "topic_universe": [
+      "DSA",
+      "System Design",
+      "Aptitude"
+    ],
+    "initial_skills": {
+      "DSA": 23,
+      "System Design": 7,
+      "Aptitude": 25
+    },
+    "available_time": 13,
+    "parameters": {
+      "skill_dist": "Beta(2,5)*100",
+      "time_dist": "Uniform(10,30)",
+      "priority_hours": {
+        "High": 3,
+        "Medium": 2,
+        "Low": 1
+      },
+      "difficulty_dist": "Uniform(40,80)",
+      "noise_dist": "Normal(0,5)",
+      "skill_update_multiplier": 2.5,
+      "mastery_threshold": 85,
+      "struggle_threshold": 50
+    },
+    "simulation_model_version": "1.0"
+  },
+  {
+    "student_id": "sim_student_dev_3",
+    "student_seed": 319030,
+    "topic_universe": [
+      "DSA",
+      "System Design",
+      "Aptitude"
+    ],
+    "initial_skills": {
+      "DSA": 22,
+      "System Design": 22,
+      "Aptitude": 24
+    },
+    "available_time": 23,
+    "parameters": {
+      "skill_dist": "Beta(2,5)*100",
+      "time_dist": "Uniform(10,30)",
+      "priority_hours": {
+        "High": 3,
+        "Medium": 2,
+        "Low": 1
+      },
+      "difficulty_dist": "Uniform(40,80)",
+      "noise_dist": "Normal(0,5)",
+      "skill_update_multiplier": 2.5,
+      "mastery_threshold": 85,
+      "struggle_threshold": 50
+    },
+    "simulation_model_version": "1.0"
+  },
+  {
+    "student_id": "sim_student_dev_4",
+    "student_seed": 572843,
+    "topic_universe": [
+      "DSA",
+      "System Design",
+      "Aptitude"
+    ],
+    "initial_skills": {
+      "DSA": 18,
+      "System Design": 6,
+      "Aptitude": 22
+    },
+    "available_time": 13,
+    "parameters": {
+      "skill_dist": "Beta(2,5)*100",
+      "time_dist": "Uniform(10,30)",
+      "priority_hours": {
+        "High": 3,
+        "Medium": 2,
+        "Low": 1
+      },
+      "difficulty_dist": "Uniform(40,80)",
+      "noise_dist": "Normal(0,5)",
+      "skill_update_multiplier": 2.5,
+      "mastery_threshold": 85,
+      "struggle_threshold": 50
+    },
+    "simulation_model_version": "1.0"
+  },
+  {
+    "student_id": "sim_student_dev_5",
+    "student_seed": 263160,
+    "topic_universe": [
+      "DSA",
+      "System Design",
+      "Aptitude"
+    ],
+    "initial_skills": {
+      "DSA": 18,
+      "System Design": 5,
+      "Aptitude": 28
+    },
+    "available_time": 10,
+    "parameters": {
+      "skill_dist": "Beta(2,5)*100",
+      "time_dist": "Uniform(10,30)",
+      "priority_hours": {
+        "High": 3,
+        "Medium": 2,
+        "Low": 1
+      },
+      "difficulty_dist": "Uniform(40,80)",
+      "noise_dist": "Normal(0,5)",
+      "skill_update_multiplier": 2.5,
+      "mastery_threshold": 85,
+      "struggle_threshold": 50
+    },
+    "simulation_model_version": "1.0"
+  },
+  {
+    "student_id": "sim_student_dev_6",
+    "student_seed": 480754,
+    "topic_universe": [
+      "DSA",
+      "System Design",
+      "Aptitude"
+    ],
+    "initial_skills": {
+      "DSA": 32,
+      "System Design": 16,
+      "Aptitude": 20
+    },
+    "available_time": 24,
+    "parameters": {
+      "skill_dist": "Beta(2,5)*100",
+      "time_dist": "Uniform(10,30)",
+      "priority_hours": {
+        "High": 3,
+        "Medium": 2,
+        "Low": 1
+      },
+      "difficulty_dist": "Uniform(40,80)",
+      "noise_dist": "Normal(0,5)",
+      "skill_update_multiplier": 2.5,
+      "mastery_threshold": 85,
+      "struggle_threshold": 50
+    },
+    "simulation_model_version": "1.0"
+  },
+  {
+    "student_id": "sim_student_dev_7",
+    "student_seed": 456551,
+    "topic_universe": [
+      "DSA",
+      "System Design",
+      "Aptitude"
+    ],
+    "initial_skills": {
+      "DSA": 55,
+      "System Design": 26,
+      "Aptitude": 33
+    },
+    "available_time": 19,
+    "parameters": {
+      "skill_dist": "Beta(2,5)*100",
+      "time_dist": "Uniform(10,30)",
+      "priority_hours": {
+        "High": 3,
+        "Medium": 2,
+        "Low": 1
+      },
+      "difficulty_dist": "Uniform(40,80)",
+      "noise_dist": "Normal(0,5)",
+      "skill_update_multiplier": 2.5,
+      "mastery_threshold": 85,
+      "struggle_threshold": 50
+    },
+    "simulation_model_version": "1.0"
+  },
+  {
+    "student_id": "sim_student_dev_8",
+    "student_seed": 185340,
+    "topic_universe": [
+      "DSA",
+      "System Design",
+      "Aptitude"
+    ],
+    "initial_skills": {
+      "DSA": 39,
+      "System Design": 11,
+      "Aptitude": 23
+    },
+    "available_time": 13,
+    "parameters": {
+      "skill_dist": "Beta(2,5)*100",
+      "time_dist": "Uniform(10,30)",
+      "priority_hours": {
+        "High": 3,
+        "Medium": 2,
+        "Low": 1
+      },
+      "difficulty_dist": "Uniform(40,80)",
+      "noise_dist": "Normal(0,5)",
+      "skill_update_multiplier": 2.5,
+      "mastery_threshold": 85,
+      "struggle_threshold": 50
+    },
+    "simulation_model_version": "1.0"
+  },
+  {
+    "student_id": "sim_student_dev_9",
+    "student_seed": 966429,
+    "topic_universe": [
+      "DSA",
+      "System Design",
+      "Aptitude"
+    ],
+    "initial_skills": {
+      "DSA": 16,
+      "System Design": 19,
+      "Aptitude": 14
+    },
+    "available_time": 19,
+    "parameters": {
+      "skill_dist": "Beta(2,5)*100",
+      "time_dist": "Uniform(10,30)",
+      "priority_hours": {
+        "High": 3,
+        "Medium": 2,
+        "Low": 1
+      },
+      "difficulty_dist": "Uniform(40,80)",
+      "noise_dist": "Normal(0,5)",
+      "skill_update_multiplier": 2.5,
+      "mastery_threshold": 85,
+      "struggle_threshold": 50
+    },
+    "simulation_model_version": "1.0"
+  },
+  {
+    "student_id": "sim_student_dev_10",
+    "student_seed": 228576,
+    "topic_universe": [
+      "DSA",
+      "System Design",
+      "Aptitude"
+    ],
+    "initial_skills": {
+      "DSA": 28,
+      "System Design": 52,
+      "Aptitude": 4
+    },
+    "available_time": 22,
+    "parameters": {
+      "skill_dist": "Beta(2,5)*100",
+      "time_dist": "Uniform(10,30)",
+      "priority_hours": {
+        "High": 3,
+        "Medium": 2,
+        "Low": 1
+      },
+      "difficulty_dist": "Uniform(40,80)",
+      "noise_dist": "Normal(0,5)",
+      "skill_update_multiplier": 2.5,
+      "mastery_threshold": 85,
+      "struggle_threshold": 50
+    },
+    "simulation_model_version": "1.0"
+  },
+  {
+    "student_id": "sim_student_dev_11",
+    "student_seed": 637147,
+    "topic_universe": [
+      "DSA",
+      "System Design",
+      "Aptitude"
+    ],
+    "initial_skills": {
+      "DSA": 21,
+      "System Design": 35,
+      "Aptitude": 65
+    },
+    "available_time": 11,
+    "parameters": {
+      "skill_dist": "Beta(2,5)*100",
+      "time_dist": "Uniform(10,30)",
+      "priority_hours": {
+        "High": 3,
+        "Medium": 2,
+        "Low": 1
+      },
+      "difficulty_dist": "Uniform(40,80)",
+      "noise_dist": "Normal(0,5)",
+      "skill_update_multiplier": 2.5,
+      "mastery_threshold": 85,
+      "struggle_threshold": 50
+    },
+    "simulation_model_version": "1.0"
+  },
+  {
+    "student_id": "sim_student_dev_12",
+    "student_seed": 418400,
+    "topic_universe": [
+      "DSA",
+      "System Design",
+      "Aptitude"
+    ],
+    "initial_skills": {
+      "DSA": 40,
+      "System Design": 15,
+      "Aptitude": 17
+    },
+    "available_time": 20,
+    "parameters": {
+      "skill_dist": "Beta(2,5)*100",
+      "time_dist": "Uniform(10,30)",
+      "priority_hours": {
+        "High": 3,
+        "Medium": 2,
+        "Low": 1
+      },
+      "difficulty_dist": "Uniform(40,80)",
+      "noise_dist": "Normal(0,5)",
+      "skill_update_multiplier": 2.5,
+      "mastery_threshold": 85,
+      "struggle_threshold": 50
+    },
+    "simulation_model_version": "1.0"
+  },
+  {
+    "student_id": "sim_student_dev_13",
+    "student_seed": 273255,
+    "topic_universe": [
+      "DSA",
+      "System Design",
+      "Aptitude"
+    ],
+    "initial_skills": {
+      "DSA": 28,
+      "System Design": 17,
+      "Aptitude": 24
+    },
+    "available_time": 27,
+    "parameters": {
+      "skill_dist": "Beta(2,5)*100",
+      "time_dist": "Uniform(10,30)",
+      "priority_hours": {
+        "High": 3,
+        "Medium": 2,
+        "Low": 1
+      },
+      "difficulty_dist": "Uniform(40,80)",
+      "noise_dist": "Normal(0,5)",
+      "skill_update_multiplier": 2.5,
+      "mastery_threshold": 85,
+      "struggle_threshold": 50
+    },
+    "simulation_model_version": "1.0"
+  },
+  {
+    "student_id": "sim_student_dev_14",
+    "student_seed": 117796,
+    "topic_universe": [
+      "DSA",
+      "System Design",
+      "Aptitude"
+    ],
+    "initial_skills": {
+      "DSA": 22,
+      "System Design": 26,
+      "Aptitude": 26
+    },
+    "available_time": 28,
+    "parameters": {
+      "skill_dist": "Beta(2,5)*100",
+      "time_dist": "Uniform(10,30)",
+      "priority_hours": {
+        "High": 3,
+        "Medium": 2,
+        "Low": 1
+      },
+      "difficulty_dist": "Uniform(40,80)",
+      "noise_dist": "Normal(0,5)",
+      "skill_update_multiplier": 2.5,
+      "mastery_threshold": 85,
+      "struggle_threshold": 50
+    },
+    "simulation_model_version": "1.0"
+  },
+  {
+    "student_id": "sim_student_dev_15",
+    "student_seed": 133272,
+    "topic_universe": [
+      "DSA",
+      "System Design",
+      "Aptitude"
+    ],
+    "initial_skills": {
+      "DSA": 48,
+      "System Design": 9,
+      "Aptitude": 36
+    },
+    "available_time": 11,
+    "parameters": {
+      "skill_dist": "Beta(2,5)*100",
+      "time_dist": "Uniform(10,30)",
+      "priority_hours": {
+        "High": 3,
+        "Medium": 2,
+        "Low": 1
+      },
+      "difficulty_dist": "Uniform(40,80)",
+      "noise_dist": "Normal(0,5)",
+      "skill_update_multiplier": 2.5,
+      "mastery_threshold": 85,
+      "struggle_threshold": 50
+    },
+    "simulation_model_version": "1.0"
+  },
+  {
+    "student_id": "sim_student_dev_16",
+    "student_seed": 171890,
+    "topic_universe": [
+      "DSA",
+      "System Design",
+      "Aptitude"
+    ],
+    "initial_skills": {
+      "DSA": 6,
+      "System Design": 40,
+      "Aptitude": 34
+    },
+    "available_time": 19,
+    "parameters": {
+      "skill_dist": "Beta(2,5)*100",
+      "time_dist": "Uniform(10,30)",
+      "priority_hours": {
+        "High": 3,
+        "Medium": 2,
+        "Low": 1
+      },
+      "difficulty_dist": "Uniform(40,80)",
+      "noise_dist": "Normal(0,5)",
+      "skill_update_multiplier": 2.5,
+      "mastery_threshold": 85,
+      "struggle_threshold": 50
+    },
+    "simulation_model_version": "1.0"
+  },
+  {
+    "student_id": "sim_student_dev_17",
+    "student_seed": 974339,
+    "topic_universe": [
+      "DSA",
+      "System Design",
+      "Aptitude"
+    ],
+    "initial_skills": {
+      "DSA": 28,
+      "System Design": 18,
+      "Aptitude": 14
+    },
+    "available_time": 16,
+    "parameters": {
+      "skill_dist": "Beta(2,5)*100",
+      "time_dist": "Uniform(10,30)",
+      "priority_hours": {
+        "High": 3,
+        "Medium": 2,
+        "Low": 1
+      },
+      "difficulty_dist": "Uniform(40,80)",
+      "noise_dist": "Normal(0,5)",
+      "skill_update_multiplier": 2.5,
+      "mastery_threshold": 85,
+      "struggle_threshold": 50
+    },
+    "simulation_model_version": "1.0"
+  },
+  {
+    "student_id": "sim_student_dev_18",
+    "student_seed": 254079,
+    "topic_universe": [
+      "DSA",
+      "System Design",
+      "Aptitude"
+    ],
+    "initial_skills": {
+      "DSA": 19,
+      "System Design": 6,
+      "Aptitude": 45
+    },
+    "available_time": 21,
+    "parameters": {
+      "skill_dist": "Beta(2,5)*100",
+      "time_dist": "Uniform(10,30)",
+      "priority_hours": {
+        "High": 3,
+        "Medium": 2,
+        "Low": 1
+      },
+      "difficulty_dist": "Uniform(40,80)",
+      "noise_dist": "Normal(0,5)",
+      "skill_update_multiplier": 2.5,
+      "mastery_threshold": 85,
+      "struggle_threshold": 50
+    },
+    "simulation_model_version": "1.0"
+  },
+  {
+    "student_id": "sim_student_dev_19",
+    "student_seed": 530089,
+    "topic_universe": [
+      "DSA",
+      "System Design",
+      "Aptitude"
+    ],
+    "initial_skills": {
+      "DSA": 29,
+      "System Design": 11,
+      "Aptitude": 34
+    },
+    "available_time": 17,
+    "parameters": {
+      "skill_dist": "Beta(2,5)*100",
+      "time_dist": "Uniform(10,30)",
+      "priority_hours": {
+        "High": 3,
+        "Medium": 2,
+        "Low": 1
+      },
+      "difficulty_dist": "Uniform(40,80)",
+      "noise_dist": "Normal(0,5)",
+      "skill_update_multiplier": 2.5,
+      "mastery_threshold": 85,
+      "struggle_threshold": 50
+    },
+    "simulation_model_version": "1.0"
+  },
+  {
+    "student_id": "sim_student_dev_20",
+    "student_seed": 996161,
+    "topic_universe": [
+      "DSA",
+      "System Design",
+      "Aptitude"
+    ],
+    "initial_skills": {
+      "DSA": 62,
+      "System Design": 16,
+      "Aptitude": 3
+    },
+    "available_time": 29,
+    "parameters": {
+      "skill_dist": "Beta(2,5)*100",
+      "time_dist": "Uniform(10,30)",
+      "priority_hours": {
+        "High": 3,
+        "Medium": 2,
+        "Low": 1
+      },
+      "difficulty_dist": "Uniform(40,80)",
+      "noise_dist": "Normal(0,5)",
+      "skill_update_multiplier": 2.5,
+      "mastery_threshold": 85,
+      "struggle_threshold": 50
+    },
+    "simulation_model_version": "1.0"
+  },
+  {
+    "student_id": "sim_student_dev_21",
+    "student_seed": 611523,
+    "topic_universe": [
+      "DSA",
+      "System Design",
+      "Aptitude"
+    ],
+    "initial_skills": {
+      "DSA": 17,
+      "System Design": 29,
+      "Aptitude": 20
+    },
+    "available_time": 23,
+    "parameters": {
+      "skill_dist": "Beta(2,5)*100",
+      "time_dist": "Uniform(10,30)",
+      "priority_hours": {
+        "High": 3,
+        "Medium": 2,
+        "Low": 1
+      },
+      "difficulty_dist": "Uniform(40,80)",
+      "noise_dist": "Normal(0,5)",
+      "skill_update_multiplier": 2.5,
+      "mastery_threshold": 85,
+      "struggle_threshold": 50
+    },
+    "simulation_model_version": "1.0"
+  },
+  {
+    "student_id": "sim_student_dev_22",
+    "student_seed": 378496,
+    "topic_universe": [
+      "DSA",
+      "System Design",
+      "Aptitude"
+    ],
+    "initial_skills": {
+      "DSA": 24,
+      "System Design": 28,
+      "Aptitude": 19
+    },
+    "available_time": 14,
+    "parameters": {
+      "skill_dist": "Beta(2,5)*100",
+      "time_dist": "Uniform(10,30)",
+      "priority_hours": {
+        "High": 3,
+        "Medium": 2,
+        "Low": 1
+      },
+      "difficulty_dist": "Uniform(40,80)",
+      "noise_dist": "Normal(0,5)",
+      "skill_update_multiplier": 2.5,
+      "mastery_threshold": 85,
+      "struggle_threshold": 50
+    },
+    "simulation_model_version": "1.0"
+  },
+  {
+    "student_id": "sim_student_dev_23",
+    "student_seed": 67215,
+    "topic_universe": [
+      "DSA",
+      "System Design",
+      "Aptitude"
+    ],
+    "initial_skills": {
+      "DSA": 18,
+      "System Design": 12,
+      "Aptitude": 17
+    },
+    "available_time": 20,
+    "parameters": {
+      "skill_dist": "Beta(2,5)*100",
+      "time_dist": "Uniform(10,30)",
+      "priority_hours": {
+        "High": 3,
+        "Medium": 2,
+        "Low": 1
+      },
+      "difficulty_dist": "Uniform(40,80)",
+      "noise_dist": "Normal(0,5)",
+      "skill_update_multiplier": 2.5,
+      "mastery_threshold": 85,
+      "struggle_threshold": 50
+    },
+    "simulation_model_version": "1.0"
+  },
+  {
+    "student_id": "sim_student_dev_24",
+    "student_seed": 304119,
+    "topic_universe": [
+      "DSA",
+      "System Design",
+      "Aptitude"
+    ],
+    "initial_skills": {
+      "DSA": 10,
+      "System Design": 31,
+      "Aptitude": 65
+    },
+    "available_time": 28,
+    "parameters": {
+      "skill_dist": "Beta(2,5)*100",
+      "time_dist": "Uniform(10,30)",
+      "priority_hours": {
+        "High": 3,
+        "Medium": 2,
+        "Low": 1
+      },
+      "difficulty_dist": "Uniform(40,80)",
+      "noise_dist": "Normal(0,5)",
+      "skill_update_multiplier": 2.5,
+      "mastery_threshold": 85,
+      "struggle_threshold": 50
+    },
+    "simulation_model_version": "1.0"
+  },
+  {
+    "student_id": "sim_student_dev_25",
+    "student_seed": 499522,
+    "topic_universe": [
+      "DSA",
+      "System Design",
+      "Aptitude"
+    ],
+    "initial_skills": {
+      "DSA": 24,
+      "System Design": 30,
+      "Aptitude": 61
+    },
+    "available_time": 16,
+    "parameters": {
+      "skill_dist": "Beta(2,5)*100",
+      "time_dist": "Uniform(10,30)",
+      "priority_hours": {
+        "High": 3,
+        "Medium": 2,
+        "Low": 1
+      },
+      "difficulty_dist": "Uniform(40,80)",
+      "noise_dist": "Normal(0,5)",
+      "skill_update_multiplier": 2.5,
+      "mastery_threshold": 85,
+      "struggle_threshold": 50
+    },
+    "simulation_model_version": "1.0"
+  },
+  {
+    "student_id": "sim_student_dev_26",
+    "student_seed": 843890,
+    "topic_universe": [
+      "DSA",
+      "System Design",
+      "Aptitude"
+    ],
+    "initial_skills": {
+      "DSA": 20,
+      "System Design": 26,
+      "Aptitude": 42
+    },
+    "available_time": 18,
+    "parameters": {
+      "skill_dist": "Beta(2,5)*100",
+      "time_dist": "Uniform(10,30)",
+      "priority_hours": {
+        "High": 3,
+        "Medium": 2,
+        "Low": 1
+      },
+      "difficulty_dist": "Uniform(40,80)",
+      "noise_dist": "Normal(0,5)",
+      "skill_update_multiplier": 2.5,
+      "mastery_threshold": 85,
+      "struggle_threshold": 50
+    },
+    "simulation_model_version": "1.0"
+  },
+  {
+    "student_id": "sim_student_dev_27",
+    "student_seed": 824273,
+    "topic_universe": [
+      "DSA",
+      "System Design",
+      "Aptitude"
+    ],
+    "initial_skills": {
+      "DSA": 53,
+      "System Design": 51,
+      "Aptitude": 66
+    },
+    "available_time": 15,
+    "parameters": {
+      "skill_dist": "Beta(2,5)*100",
+      "time_dist": "Uniform(10,30)",
+      "priority_hours": {
+        "High": 3,
+        "Medium": 2,
+        "Low": 1
+      },
+      "difficulty_dist": "Uniform(40,80)",
+      "noise_dist": "Normal(0,5)",
+      "skill_update_multiplier": 2.5,
+      "mastery_threshold": 85,
+      "struggle_threshold": 50
+    },
+    "simulation_model_version": "1.0"
+  },
+  {
+    "student_id": "sim_student_dev_28",
+    "student_seed": 564242,
+    "topic_universe": [
+      "DSA",
+      "System Design",
+      "Aptitude"
+    ],
+    "initial_skills": {
+      "DSA": 32,
+      "System Design": 7,
+      "Aptitude": 35
+    },
+    "available_time": 11,
+    "parameters": {
+      "skill_dist": "Beta(2,5)*100",
+      "time_dist": "Uniform(10,30)",
+      "priority_hours": {
+        "High": 3,
+        "Medium": 2,
+        "Low": 1
+      },
+      "difficulty_dist": "Uniform(40,80)",
+      "noise_dist": "Normal(0,5)",
+      "skill_update_multiplier": 2.5,
+      "mastery_threshold": 85,
+      "struggle_threshold": 50
+    },
+    "simulation_model_version": "1.0"
+  },
+  {
+    "student_id": "sim_student_dev_29",
+    "student_seed": 152617,
+    "topic_universe": [
+      "DSA",
+      "System Design",
+      "Aptitude"
+    ],
+    "initial_skills": {
+      "DSA": 31,
+      "System Design": 32,
+      "Aptitude": 18
+    },
+    "available_time": 27,
+    "parameters": {
+      "skill_dist": "Beta(2,5)*100",
+      "time_dist": "Uniform(10,30)",
+      "priority_hours": {
+        "High": 3,
+        "Medium": 2,
+        "Low": 1
+      },
+      "difficulty_dist": "Uniform(40,80)",
+      "noise_dist": "Normal(0,5)",
+      "skill_update_multiplier": 2.5,
+      "mastery_threshold": 85,
+      "struggle_threshold": 50
+    },
+    "simulation_model_version": "1.0"
+  },
+  {
+    "student_id": "sim_student_dev_30",
+    "student_seed": 238067,
+    "topic_universe": [
+      "DSA",
+      "System Design",
+      "Aptitude"
+    ],
+    "initial_skills": {
+      "DSA": 25,
+      "System Design": 70,
+      "Aptitude": 27
+    },
+    "available_time": 18,
+    "parameters": {
+      "skill_dist": "Beta(2,5)*100",
+      "time_dist": "Uniform(10,30)",
+      "priority_hours": {
+        "High": 3,
+        "Medium": 2,
+        "Low": 1
+      },
+      "difficulty_dist": "Uniform(40,80)",
+      "noise_dist": "Normal(0,5)",
+      "skill_update_multiplier": 2.5,
+      "mastery_threshold": 85,
+      "struggle_threshold": 50
+    },
+    "simulation_model_version": "1.0"
+  }
+]
