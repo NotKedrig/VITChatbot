@@ -1,0 +1,122 @@
+[
+  {
+    "question_id": "exp1_001",
+    "question": "What is the minimum CGPA required to be eligible for campus placement at Aether Robotics?",
+    "expected_facts": ["7.0 minimum", "No relaxation"],
+    "gold_source_doc_ids": ["aether_robotics_placement_faq"]
+  },
+  {
+    "question_id": "exp1_002",
+    "question": "Which programming languages are used by the Perception and Planning Engineers at Aether Robotics?",
+    "expected_facts": ["Python", "C++"],
+    "gold_source_doc_ids": ["aether_robotics_placement_faq"]
+  },
+  {
+    "question_id": "exp1_003",
+    "question": "What topics will be covered in the technical interview for the Embedded Software Engineer role at Aether?",
+    "expected_facts": ["memory management", "interrupt handling", "mutex and semaphore concepts", "debugging exercise"],
+    "gold_source_doc_ids": ["aether_robotics_placement_faq"]
+  },
+  {
+    "question_id": "exp1_004",
+    "question": "Which Real-Time Operating System is used on most Aether robot controller boards?",
+    "expected_facts": ["FreeRTOS"],
+    "gold_source_doc_ids": ["aether_robotics_tech_prep"]
+  },
+  {
+    "question_id": "exp1_005",
+    "question": "How many questions are in the Quantitative Aptitude section of the NovaTech online assessment?",
+    "expected_facts": ["20 questions"],
+    "gold_source_doc_ids": ["novatech_recruitment_guide"]
+  },
+  {
+    "question_id": "exp1_006",
+    "question": "Are students with backlogs allowed to participate in the NovaTech campus drive?",
+    "expected_facts": ["Zero active backlogs", "Historical backlogs that have been cleared are acceptable"],
+    "gold_source_doc_ids": ["novatech_recruitment_guide"]
+  },
+  {
+    "question_id": "exp1_007",
+    "question": "How long is the probation period at NovaTech and how many days of leave am I entitled to during it?",
+    "expected_facts": ["6-month probation", "6 days"],
+    "gold_source_doc_ids": ["novatech_offer_and_onboarding"]
+  },
+  {
+    "question_id": "exp1_008",
+    "question": "Does NovaTech disburse salaries to any bank account, or is there a specific partner bank?",
+    "expected_facts": ["partner bank", "HDFC Bank"],
+    "gold_source_doc_ids": ["novatech_offer_and_onboarding"]
+  },
+  {
+    "question_id": "exp1_009",
+    "question": "I am an MCA student. Am I eligible to apply for engineering roles at Meridian FinTech?",
+    "expected_facts": ["does not recruit from MCA", "not considered"],
+    "gold_source_doc_ids": ["meridian_fintech_hiring_handbook"]
+  },
+  {
+    "question_id": "exp1_010",
+    "question": "What is the total compensation package for a Quality Assurance Engineer at Meridian FinTech?",
+    "expected_facts": ["8 LPA", "fixed"],
+    "gold_source_doc_ids": ["meridian_fintech_hiring_handbook"]
+  },
+  {
+    "question_id": "exp1_011",
+    "question": "What are the primary programming languages used for backend services at Meridian FinTech?",
+    "expected_facts": ["Java 21", "Kotlin"],
+    "gold_source_doc_ids": ["meridian_fintech_role_details"]
+  },
+  {
+    "question_id": "exp1_012",
+    "question": "What three core values guide hiring and performance decisions at Meridian FinTech?",
+    "expected_facts": ["Customer obsession", "Speed of execution", "Frugal innovation"],
+    "gold_source_doc_ids": ["meridian_fintech_role_details"]
+  },
+  {
+    "question_id": "exp1_013",
+    "question": "If I am asked to design a payment processing system at Meridian, what specific failure scenario should I address?",
+    "expected_facts": ["payment gateway timeout", "idempotency key", "retry with exponential backoff"],
+    "gold_source_doc_ids": ["meridian_fintech_system_design_guide"]
+  },
+  {
+    "question_id": "exp1_014",
+    "question": "What algorithm choices should I discuss if asked to design a rate limiter in the Meridian interview?",
+    "expected_facts": ["token bucket", "sliding window log", "sliding window counter"],
+    "gold_source_doc_ids": ["meridian_fintech_system_design_guide"]
+  },
+  {
+    "question_id": "exp1_015",
+    "question": "Are design patterns important for the object-oriented design round at NovaTech? Can you give examples?",
+    "expected_facts": ["Strategy", "Observer", "Factory", "Singleton", "at least one design pattern"],
+    "gold_source_doc_ids": ["novatech_interview_prep_guide"]
+  },
+  {
+    "question_id": "exp1_016",
+    "question": "In the NovaTech coding interview, should I jump straight to the most optimal solution if I know it?",
+    "expected_facts": ["Discuss brute-force first", "prefer seeing the progression from naïve to efficient"],
+    "gold_source_doc_ids": ["novatech_interview_prep_guide"]
+  },
+  {
+    "question_id": "exp1_017",
+    "question": "How long should my resume be if I am a student with less than one year of work experience?",
+    "expected_facts": ["one-page", "one page"],
+    "gold_source_doc_ids": ["resume_and_communication_guide"]
+  },
+  {
+    "question_id": "exp1_018",
+    "question": "What does the 'A' stand for in the STAR method used for answering behavioural questions?",
+    "expected_facts": ["Action", "what steps did you take"],
+    "gold_source_doc_ids": ["resume_and_communication_guide"]
+  },
+  {
+    "question_id": "exp1_019",
+    "question": "What is a good time management strategy for Number-theory problems during aptitude tests?",
+    "expected_facts": ["Skip and return if a problem takes more than 90 seconds"],
+    "gold_source_doc_ids": ["general_aptitude_prep_guide"]
+  },
+  {
+    "question_id": "exp1_020",
+    "question": "Which coding platform and specific topics are recommended for coding practice?",
+    "expected_facts": ["LeetCode", "Arrays", "Strings", "Trees", "Graphs"],
+    "gold_source_doc_ids": ["general_aptitude_prep_guide"]
+  }
+]

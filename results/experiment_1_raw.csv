@@ -1,0 +1,204 @@
+question_id,system,answer,factual_accuracy,hallucinated,citation_precision,needs_human_review,model_name,model_version,temperature,timestamp,dataset_version,dataset_sha256
+exp1_001,Vanilla,"Answer:
+
+I do not have access to the specific, real-time eligibility criteria for Aether Robotics, as these requirements are updated annually by the company and managed through the VIT Career Development Centre (CDC) portal.
+
+Typically, companies visiting VIT set CGPA cutoffs ranging from 6.0 to 8.0 depending on the role. You should check the **VIT VTOP/CDC portal** under the ""Placement"" or ""Company Eligibility"" section for the most accurate and current information regarding Aether Robotics.",0.0,False,,False,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:47:40.626405+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_001,RAG,The provided documents do not contain information regarding the minimum CGPA required for campus placement at Aether Robotics.,0.0,False,0.25,False,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:47:40.626405+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_002,Vanilla,"Perception and Planning roles at robotics companies like Aether typically prioritize **C++** as the primary language for performance-critical tasks, real-time processing, and integration with robotics frameworks like ROS (Robot Operating System). **Python** is also widely used for rapid prototyping, data analysis, and machine learning model development.
+
+Please note: I do not have access to Aether Robotics' internal technical stack or specific hiring requirements. You should verify this by checking their official job descriptions on the VIT placement portal or their company website, as requirements can vary based on the specific project team.",1.0,False,,False,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:48:09.070617+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_002,RAG,Perception and Planning Engineers at Aether Robotics use Python and C++ (Source 1).,1.0,False,0.3333333333333333,False,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:48:09.070617+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_003,Vanilla,"For an Embedded Software Engineer role at a company like Aether, you should prepare for a technical interview covering the following core areas:
+
+*   **C/C++ Programming:** Proficiency in C is mandatory. Focus on pointers, memory management (malloc/free), bitwise operations, volatile keyword, static vs. dynamic memory, and data structures (linked lists, queues, stacks).
+*   **Microcontrollers & Architecture:** Understanding of ARM Cortex-M architecture, interrupt handling, timers, PWM, and GPIO configuration.
+*   **Communication Protocols:** In-depth knowledge of I2C, SPI, UART, and CAN bus. You should understand how these protocols work at the register level.
+*   **Operating Systems:** Concepts of Real-Time Operating Systems (RTOS), including task scheduling, semaphores, mutexes, deadlocks, and priority inversion.
+*   **Hardware Interfacing:** Ability to read and interpret circuit schematics and datasheets.
+*   **Debugging:** Experience with tools like oscilloscopes, logic analyzers, and debuggers (JTAG/SWD).
+
+**Note:** I do not have access to Aether’s specific internal interview question bank or their current hiring criteria, so I cannot confirm if they prioritize specific proprietary frameworks or niche hardware platforms. Always review your own projects thoroughly, as interviewers often deep-dive into the technical challenges you faced during your internships or capstone projects.",0.5,False,,False,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:48:37.047624+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_003,RAG,"For the Embedded Software Engineer (ESE) role at Aether, the technical interview covers the following topics:
+
+*   C/C++ memory management.
+*   Interrupt handling.
+*   Mutex and semaphore concepts.
+*   A debugging exercise involving identifying and fixing a logical or concurrency bug in a piece of C code.
+
+(Source: Aether Robotics — Engineering Campus Placement FAQ, Source 3)",1.0,False,0.3333333333333333,False,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:48:37.047624+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_004,Vanilla,"Most Aether robot controller boards utilize **FreeRTOS** as their primary Real-Time Operating System. 
+
+*Note: While FreeRTOS is the standard for their current controller architecture, I cannot confirm if specific legacy or custom-built boards utilize different proprietary kernels, as technical specifications can vary by hardware revision.*",1.0,False,,False,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:49:09.615328+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_004,RAG,Aether Robotics uses FreeRTOS on most of its robot controller boards (Source 1).,1.0,False,0.5,False,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:49:09.615328+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_005,Vanilla,"Answer: I do not have access to specific, real-time data regarding the exact number of questions in the NovaTech online assessment. Company assessment patterns, including the number of questions and time limits, are subject to change and can vary based on the specific hiring cycle or role. 
+
+I recommend checking the **VIT Career Development Centre (CDC) portal** or recent placement experience blogs from seniors on platforms like LinkedIn or GitHub for the most accurate and up-to-date information regarding NovaTech's current test pattern.",0.0,True,,False,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:49:38.693916+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_005,RAG,There are 20 questions in the Quantitative Aptitude section of the NovaTech online assessment (Source 3: NovaTech Solutions — Campus Recruitment Guide).,1.0,False,0.3333333333333333,False,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:49:38.693916+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_006,Vanilla,"Whether students with backlogs are allowed to participate in a campus drive depends entirely on the specific eligibility criteria set by the company for that recruitment cycle.
+
+**I do not have access to the specific hiring policy for ""NovaTech"" regarding backlogs.**
+
+Generally, at VIT:
+*   **Company Policy:** Most Tier-1 and Tier-2 companies mandate a ""no active backlog"" policy. Some even require a ""clean record"" (no history of backlogs).
+*   **Verification:** You must check the **VIT Career Development Centre (CDC) portal (VTOP)** for the specific Job Description (JD) released for NovaTech. The eligibility criteria, including backlog status, will be explicitly stated there.
+*   **Recommendation:** If the JD is not yet live or is unclear, contact your assigned placement coordinator or the CDC office directly for clarification, as policies vary by company and sometimes by the specific role being offered.",0.0,True,,False,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:50:06.740540+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_006,RAG,The provided context does not contain information regarding whether students with backlogs are allowed to participate in the NovaTech campus drive. It only specifies the degree requirements and a minimum CGPA of 7.0 on a 10-point scale (Source 4).,0.0,False,0.5,False,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:50:06.740540+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_007,Vanilla,"I do not have access to specific internal HR policies for NovaTech, as these details vary by company and are often subject to change. 
+
+Typically, probation periods in the tech industry range from **3 to 6 months**. Regarding leave entitlements during probation, most companies have restrictive policies where you may only be eligible for emergency leave or a pro-rated number of days, rather than the full annual leave quota.
+
+**Recommendation:**
+1. **Check your Offer Letter:** This is the only legally binding document that will specify your exact probation duration and leave policy.
+2. **Consult the HR Portal/Handbook:** If you have already received your onboarding credentials, check the employee handbook.
+3. **Contact HR:** If you are in the pre-joining phase, email your designated HR point of contact directly. It is perfectly professional to ask, ""Could you please clarify the leave policy applicable during the probation period?""",0.0,True,,False,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:50:34.288276+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_007,RAG,"The probation period at NovaTech is 6 months (Source 1, Source 2). During this period, your leave entitlement is limited to 6 days, plus public holidays (Source 1, Source 2).",0.5,False,0.5,True,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:50:34.288276+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_008,Vanilla,"Answer:
+
+I do not have access to specific internal payroll policies for NovaTech, nor is there a universally standard ""NovaTech"" company in the context of VIT campus placements. 
+
+Generally, most companies hiring through VIT campus placements do not mandate a specific partner bank for salary disbursement. They typically allow employees to provide any valid Indian bank account (NEFT/IMPS enabled) for salary credit. However, some large multinational corporations may have a preferred banking partner to facilitate faster processing or offer additional employee benefits.
+
+I recommend checking the specific offer letter or reaching out to the company’s HR point of contact provided during the placement process for confirmation.",0.5,True,,False,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:51:02.637447+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_008,RAG,"NovaTech disburses salaries to a specific partner bank, which is HDFC Bank. If a candidate does not already have an account with them, a new account is opened on Day 1 (Source 1: NovaTech Solutions — Offer Letter and Onboarding FAQ).",1.0,False,0.5,False,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:51:02.637447+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_009,Vanilla,"Whether you are eligible for engineering roles at Meridian FinTech as an MCA student depends on the company's specific hiring policy for the current recruitment cycle.
+
+Generally, many FinTech companies are open to hiring MCA students for software engineering roles, as the curriculum is often considered equivalent to a B.Tech/M.Tech in Computer Science. However, some firms strictly restrict ""Engineering"" roles to B.Tech/M.Tech graduates, while offering MCA students roles under ""Associate Software Engineer"" or ""Application Developer"" titles.
+
+**To confirm your eligibility:**
+1. **Check the VTOP Placement Portal:** This is the most accurate source. If the job description (JD) is visible to you under the ""Eligible"" tab, you are eligible.
+2. **Review the JD:** Look for the ""Eligible Degrees"" section. If it explicitly lists ""MCA,"" you are eligible.
+3. **Contact the Placement Office:** If you are unsure, reach out to your campus placement coordinator, as they have the finalized eligibility criteria shared by the company.
+
+**Note:** I do not have access to Meridian FinTech’s specific internal hiring criteria for this year, so I cannot confirm your eligibility with certainty. Please verify via VTOP.",0.0,True,,False,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:51:30.200641+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_009,RAG,"No, you are not eligible. According to the ""Meridian Financial Technologies — Campus Hiring Handbook"" (Source 4), Meridian FinTech does not recruit from MCA or MSc programmes for engineering roles.",0.5,False,0.25,False,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:51:30.200641+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_010,Vanilla,"I do not have access to real-time salary databases or internal company records for Meridian FinTech. Consequently, I cannot provide a specific total compensation figure for a Quality Assurance Engineer role at that company.
+
+Compensation packages for such roles typically vary based on the candidate's experience, technical assessment performance, and the specific office location. I recommend checking platforms like **AmbitionBox, Glassdoor, or LinkedIn Salary** for crowd-sourced data, or reviewing the specific offer details provided by the company during the placement process.",0.0,False,,True,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:52:00.595855+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_010,RAG,"The provided context does not contain information regarding the total compensation package for a Quality Assurance Engineer at Meridian FinTech. While Source 4 mentions the Quality Assurance Engineer (QAE) role, it does not list a CTC for that specific position.",0.0,False,0.25,False,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:52:00.595855+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_011,Vanilla,"I do not have access to the internal technical stack documentation for Meridian FinTech. 
+
+Generally, FinTech companies prioritize languages that offer high performance, concurrency, and strong type safety. You are likely to encounter **Java (Spring Boot)**, **Go (Golang)**, or **Python** in their backend infrastructure. 
+
+I recommend checking the following resources for the most accurate information:
+1. **VIT Placement Portal (VTOP):** Review the company’s JD (Job Description) uploaded for previous recruitment drives.
+2. **LinkedIn/Glassdoor:** Look for current employees at Meridian FinTech and check their tech stack mentions.
+3. **GitHub/Tech Blogs:** Search if the company has an engineering blog or open-source repositories.
+
+If you are preparing for an interview, focus on mastering Data Structures and Algorithms (DSA) in your preferred language, as most FinTech firms prioritize problem-solving skills over specific language proficiency during the initial rounds.",0.0,True,,False,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:52:33.879727+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_011,RAG,The primary programming languages used for backend services at Meridian FinTech are Java and Kotlin (Source 2: Meridian Financial Technologies — Campus Hiring Handbook).,0.5,False,0.25,False,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:52:33.879727+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_012,Vanilla,"I am uncertain about the specific core values of ""Meridian FinTech,"" as it is not a widely recognized global firm with a standardized public recruitment framework, and there may be multiple entities with similar names. 
+
+If you are referring to a specific company visiting VIT for placements, I recommend checking the **VIT Career Development Centre (CDC) portal** or the company’s official **""About Us"" or ""Careers"" page**, as these values are typically highlighted in their pre-placement talks and recruitment brochures.",0.0,False,,True,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:53:04.014601+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_012,RAG,The provided context does not contain information regarding the three core values that guide hiring and performance decisions at Meridian FinTech.,0.0,False,0.2,False,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:53:04.014601+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_013,Vanilla,"To design a robust payment processing system for a company like Meridian, you should focus on **idempotency** and **distributed transaction consistency**.
+
+The most critical failure scenario to address is **""Double Charging"" due to network timeouts.**
+
+**How to address it:**
+1.  **Idempotency Keys:** Explain that every request must include a unique `Idempotency-Key` (generated by the client). If a network timeout occurs and the client retries the request, the server uses this key to recognize the duplicate and return the cached result of the first attempt rather than processing the payment again.
+2.  **Atomic Transactions:** Discuss the use of a ""Two-Phase Commit"" or the ""Saga Pattern"" to ensure that the database record of the transaction and the call to the external payment gateway (e.g., Stripe/PayPal) stay in sync.
+3.  **Handling Partial Failures:** Address what happens if the payment is successful at the gateway but the database update fails. You should propose a reconciliation service (a background job) that periodically compares gateway logs with internal database records to identify and fix discrepancies.
+
+**Note:** I do not have access to Meridian’s specific internal architecture or their proprietary system requirements, so this advice is based on standard industry practices for high-availability financial systems.",0.3333333333333333,False,,True,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:53:36.033386+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_013,RAG,"According to Source 1, you should mention at least one failure scenario, such as a payment gateway timeout, and explain how your design handles it using an idempotency key and a retry mechanism with exponential backoff.",0.6666666666666666,False,0.5,False,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:53:36.033386+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_014,Vanilla,"To design a robust rate limiter during a technical interview, you should discuss the following algorithms, ranked by their complexity and use cases:
+
+1.  **Token Bucket:** The industry standard. It allows for bursts of traffic while maintaining a steady average rate. It is memory-efficient and easy to implement.
+2.  **Leaky Bucket:** Useful for smoothing out traffic bursts to ensure a constant processing rate. It is ideal for scenarios where you need to strictly control the output rate (e.g., network traffic shaping).
+3.  **Fixed Window Counter:** The simplest approach. It resets at fixed intervals (e.g., every minute). **Note:** Mention its primary flaw—the ""boundary condition"" where a user can double their quota by sending requests at the end of one window and the start of the next.
+4.  **Sliding Window Log:** Highly accurate as it tracks timestamps of every request. However, it is memory-intensive because it stores a log of timestamps for every user.
+5.  **Sliding Window Counter:** A hybrid approach that combines the fixed window and the weighted average of the previous window. It provides a good balance between accuracy and memory efficiency.
+
+**Key Discussion Points to Include:**
+*   **Distributed Systems:** Explain how you would handle rate limiting across multiple servers using a centralized data store like **Redis** (using Lua scripts for atomicity).
+*   **Scalability:** Discuss the trade-offs between local rate limiting (faster, but less accurate) and global rate limiting (accurate, but introduces network latency).
+*   **HTTP Status Codes:** Always mention that a rate-limited request should return a **429 Too Many Requests** status code.
+
+*Disclaimer: I do not have specific internal information regarding the ""Meridian"" interview process or their specific expectations for this question.*",1.0,False,,True,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:54:04.720294+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_014,RAG,"If asked to design a rate limiter in the Meridian FinTech interview, you should discuss the following algorithm choices:
+
+*   **Token bucket:** Allows for short bursts of traffic (Source 1).
+*   **Sliding window log:** Precise but memory-intensive (Source 1).
+*   **Sliding window counter:** An approximate approach (Source 1).
+
+Additionally, you should be prepared to describe where the state is stored for your chosen algorithm (Source 4).",1.0,False,0.25,True,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:54:04.720294+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_015,Vanilla,"Yes, design patterns are highly important for object-oriented design (OOD) rounds at companies like NovaTech. These rounds test your ability to write scalable, maintainable, and modular code rather than just functional code.
+
+**Why they are important:**
+Interviewers use design patterns to evaluate if you understand how to solve recurring architectural problems (e.g., object creation, decoupling, or state management) using industry-standard best practices.
+
+**Common examples to prepare:**
+
+1.  **Singleton Pattern:** Used when you need to ensure a class has only one instance and provides a global point of access (e.g., a Database Connection Pool or a Logger).
+2.  **Factory Pattern:** Used to create objects without specifying the exact class of object that will be created. This is useful for decoupling client code from concrete implementations.
+3.  **Strategy Pattern:** Used to define a family of algorithms, encapsulate each one, and make them interchangeable. This allows the algorithm to vary independently from the clients that use it (e.g., different payment methods like Credit Card vs. PayPal).
+4.  **Observer Pattern:** Used for one-to-many dependency between objects so that when one object changes state, all its dependents are notified (e.g., an event-handling system or UI components).
+5.  **Builder Pattern:** Used to construct complex objects step-by-step, which is particularly useful when a class has many optional parameters.
+
+**Note:** I do not have access to NovaTech’s specific internal interview rubrics, so I cannot confirm if they prioritize specific patterns over others. However, mastering the patterns listed above is standard preparation for any high-level OOD interview.",0.8,True,,False,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:54:35.880634+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_015,RAG,"Yes, design patterns are important for the object-oriented design round at NovaTech. Candidates are assessed on their application of at least one design pattern. The most commonly discussed patterns are Strategy, Observer, Factory, and Singleton (Source 4: NovaTech Solutions — Technical Interview Preparation Guide).",1.0,False,0.3333333333333333,False,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:54:35.880634+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_016,Vanilla,"No, do not jump straight to the optimal solution. 
+
+Follow this structured approach instead:
+
+1.  **Clarify the problem:** Restate the requirements and ask clarifying questions (e.g., constraints, edge cases, input size) to demonstrate analytical thinking.
+2.  **Discuss the brute-force approach:** Briefly explain a simple, suboptimal solution first. This shows you understand the core logic and establishes a baseline.
+3.  **Propose the optimization:** Explain *why* the brute-force approach is inefficient (time/space complexity) and then transition to your optimal solution.
+4.  **Communicate throughout:** Think out loud while coding. Interviewers value your problem-solving process and communication skills as much as the final code.
+
+Jumping straight to the optimal solution can make you appear as if you have memorized the problem, which may lead the interviewer to doubt your ability to derive solutions independently.",0.0,False,,False,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:55:09.943723+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_016,RAG,"No. According to the ""NovaTech Solutions — Technical Interview Preparation Guide"" (Source 1), interviewers prefer to see the progression from a brute-force approach to an efficient one rather than jumping to an optimal solution without explanation.",0.0,False,0.3333333333333333,False,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:55:09.943723+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_017,Vanilla,"For a student with less than one year of work experience, your resume should be **exactly one page**.
+
+Recruiters at campus drives typically spend only a few seconds scanning each resume. A single page forces you to prioritize your most relevant projects, technical skills, and internships, ensuring that your strongest qualifications are immediately visible. Avoid using a font size smaller than 10pt or excessive margins to cram information; instead, focus on concise, impact-oriented bullet points.",1.0,False,,False,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:55:39.735021+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_017,RAG,"If you are a student with less than one year of work experience, a one-page resume is expected (Source 1: Campus Placement — Resume and Communication Skills Guide).",1.0,False,0.5,False,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:55:39.735021+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_018,Vanilla,"In the STAR method, the 'A' stands for **Action**. 
+
+It refers to the specific steps or actions you took to address the situation or challenge described in your answer.",0.5,False,,False,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:56:08.407793+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_018,RAG,"In the STAR method, the 'A' stands for **Action**, which refers to the steps you took (Source 2: Campus Placement — Resume and Communication Skills Guide).",0.5,False,0.3333333333333333,False,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:56:08.407793+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_019,Vanilla,"To manage time effectively for number-theory problems during VIT campus placement aptitude tests, follow these strategies:
+
+1.  **The 60-Second Rule:** If you cannot identify the underlying property (e.g., divisibility rules, cyclicity, or modular arithmetic) within 60 seconds, **skip it immediately**. Number theory problems are often designed as ""traps"" to consume excessive time.
+2.  **Prioritize Familiar Patterns:** Focus on problems involving:
+    *   **Last digit/Unit digit:** Use cyclicity (powers of 2, 3, 7, 8 repeat every 4).
+    *   **Divisibility rules:** Quickly check for 3, 9, 11, and 7.
+    *   **Remainders:** Use the Remainder Theorem or modular arithmetic properties.
+3.  **Use Elimination:** If the problem involves finding a specific number, plug the options back into the equation rather than solving algebraically. This is almost always faster.
+4.  **Identify ""Low-Hanging Fruit"":** Solve problems involving HCF/LCM and basic prime factorization first, as these are procedural and less prone to complex logical dead-ends.
+5.  **Avoid ""Brute Force"":** Never attempt to list out factors or perform long division for large numbers unless there is no other way. If you find yourself doing heavy manual calculation, you are likely missing a shortcut.
+
+**Note:** I am uncertain about the specific difficulty level of number theory questions in the current VIT placement cycle, as these vary by company (e.g., TCS NQT vs. high-frequency trading firms). Always prioritize accuracy over speed for high-weightage sections.",0.0,False,,False,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:56:44.066395+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_019,RAG,"The provided documents do not contain specific time management strategies for Number-theory problems. However, for general aptitude MCQs, Source 2 advises not to spend more than 2 minutes on a single question. Additionally, Source 4 suggests using estimation and elimination to narrow options quickly rather than computing precise answers when approximation suffices.",0.0,False,0.3333333333333333,False,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:56:44.066395+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_020,Vanilla,"For VIT students preparing for campus placements, the following platforms and topics are highly recommended:
+
+### **Recommended Platforms**
+*   **LeetCode:** The industry standard. Focus on ""Top Interview Questions"" and the ""LeetCode 75"" study plan.
+*   **GeeksforGeeks (GFG):** Excellent for company-specific archives (check the ""VIT"" or ""Placement"" tags) and theoretical concepts.
+*   **HackerRank:** Useful for practicing basic syntax and participating in company-specific online assessment (OA) mock tests.
+*   **CodeStudio (by Coding Ninjas):** Highly recommended for curated problem lists and interview experiences.
+
+### **Core Topics to Master**
+1.  **Data Structures:**
+    *   **Arrays & Strings:** Two-pointer technique, sliding window, and prefix sums.
+    *   **Linked Lists:** Reversal, cycle detection (Floyd’s), and merging.
+    *   **Stacks & Queues:** Monotonic stacks and queue-based BFS.
+    *   **Trees & Graphs:** Binary Search Trees (BST), DFS/BFS, Dijkstra’s algorithm, and Topological sort.
+    *   **Heaps/Priority Queues:** Useful for ""Kth largest/smallest"" problems.
+2.  **Algorithms:**
+    *   **Sorting & Searching:** Binary Search (crucial for O(log n) problems).
+    *   **Recursion & Backtracking:** N-Queens, permutations, and combinations.
+    *   **Dynamic Programming (DP):** Start with 1D DP (climbing stairs, house robber) before moving to 2D DP (knapsack, LCS).
+    *   **Greedy Algorithms:** Interval scheduling and activity selection.
+3.  **Computer Science Fundamentals (Non-coding):**
+    *   **DBMS:** SQL queries (Joins, Group By), Normalization, and ACID properties.
+    *   **Operating Systems:** Process scheduling, Deadlocks, and Paging.
+    *   **Object-Oriented Programming (OOPs):** Pillars of OOPs (Inheritance, Polymorphism, Encapsulation, Abstraction).
+
+**Pro-Tip:** Prioritize **LeetCode Medium** problems, as these form the bulk of most OA rounds. Aim to solve at least 200–300 problems across these topics before the placement season begins.",1.0,False,,False,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:57:13.555485+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+exp1_020,RAG,"According to the ""General Campus Placement Preparation — Aptitude and Reasoning"" document, the recommended coding platform is LeetCode. You should filter by Easy and Medium difficulty levels and focus on the following topics:
+
+*   Arrays
+*   Strings
+*   Trees
+*   Graphs",1.0,False,0.25,False,gemini-3.1-flash-lite,gemini-3.1-flash-lite,0.0,2026-08-24T17:57:13.555485+00:00,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5

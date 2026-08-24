@@ -1,0 +1,3 @@
+metric,sample_size,test_statistic,p_value,effect_size_odds_ratio,ci_lower_diff,ci_upper_diff,significant_at_0.05,pct_needs_human_review,dataset_version,dataset_sha256
+factual_accuracy_>=0.5,20,0.0,0.0625,11.0,0.08499999999999999,0.33,False,15.0,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
+hallucinated,20,0.0,0.015625,0.0,-0.55,-0.15,True,15.0,rag_questions_v1.0,45669499df81235bb6afea95dffaec3c6d6d7f4d699b970db5e49b997c71ebb5
