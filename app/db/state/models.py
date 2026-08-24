@@ -223,3 +223,30 @@ class Notification(Base):
     dispatched_at = Column(DateTime(timezone=True), nullable=True)
     
     student = relationship("StudentProfile", backref="notifications")
+
+# ---------------------------------------------------------------------------
+# Study Plans
+# ---------------------------------------------------------------------------
+
+class StudyPlan(Base):
+    """
+    Tracks the active study plan for a student.
+    """
+    __tablename__ = "study_plans"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    student_id = Column(
+        String(255),
+        ForeignKey("student_profiles.student_id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    plan_json = Column(JSON, nullable=False)
+    created_at = Column(
+        DateTime(timezone=True),
+        nullable=False,
+        default=lambda: datetime.now(timezone.utc),
+    )
+    is_active = Column(Boolean, nullable=False, default=True)
+    
+    student = relationship("StudentProfile", backref="study_plans")

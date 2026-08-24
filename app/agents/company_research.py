@@ -154,6 +154,51 @@ def answer_with_rag(
 
 
 # ---------------------------------------------------------------------------
+# Retrieval Only (Offline Fallback)
+# ---------------------------------------------------------------------------
+
+def retrieve_only(
+    question: str,
+    collection_name: str,
+    top_k: int | None = None,
+    chroma_persist_dir: str | None = None,
+    embedding_model_name: str | None = None,
+) -> dict:
+    """
+    Retrieve relevant passages WITHOUT generating an LLM answer.
+    Used for offline fallback mode.
+    """
+    from app.config import settings
+    top_k = top_k if top_k is not None else settings.top_k_retrieval
+
+    chunks: list[RetrievedChunk] = retrieve(
+        query=question,
+        collection_name=collection_name,
+        top_k=top_k,
+        chroma_persist_dir=chroma_persist_dir,
+        embedding_model_name=embedding_model_name,
+    )
+
+    citations = format_citations(chunks)
+
+    return {
+        "question": question,
+        "answer": None,
+        "citations": [c.to_dict() for c in citations],
+        "chunks": [
+            {
+                "text": c.text,
+                "title": c.title,
+                "doc_id": c.doc_id,
+                "similarity_score": c.similarity_score,
+                "chunk_index": c.chunk_index
+            } for c in chunks
+        ],
+        "is_offline": True,
+    }
+
+
+# ---------------------------------------------------------------------------
 # Vanilla baseline
 # ---------------------------------------------------------------------------
 

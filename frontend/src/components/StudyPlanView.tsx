@@ -13,7 +13,7 @@ export default function StudyPlanView({ plan }: { plan: any }) {
   }
 
   return (
-    <div className="animate-in" style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '24px', height: '100%', overflowY: 'auto' }}>
+    <div className="animate-in glass-panel" style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '24px' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <h2>Your Study Plan</h2>
         <div style={{ fontSize: '0.85em', color: 'var(--text-secondary)' }}>

@@ -210,3 +210,214 @@ async def get_student_state(student_id: str):
             "plan_revisions": [to_dict(r) for r in revisions],
             "notifications": [to_dict(n) for n in notifications]
         }
+
+# ---------------------------------------------------------------------------
+# New REST Endpoints (Frontend Overhaul)
+# ---------------------------------------------------------------------------
+
+from app.agents.company_research import answer_with_rag, retrieve_only
+from app.llm.provider import QuotaExhaustedError
+from app.agents.planner import planner_node
+from app.db.state.models import StudyPlan
+
+class ResearchRequest(BaseModel):
+    query: str
+    collection_name: str | None = None
+
+@app.post("/api/research")
+async def api_research(req: ResearchRequest):
+    collection = req.collection_name or f"vitian_kb_{settings.chunking_strategy}"
+    try:
+        ans = answer_with_rag(question=req.query, collection_name=collection)
+        return {
+            "question": ans.question,
+            "answer": ans.answer,
+            "citations": [c.to_dict() for c in ans.citations],
+            "chunks": [{"text": c.text, "title": c.title, "doc_id": c.doc_id, "similarity_score": c.similarity_score, "chunk_index": c.chunk_index} for c in ans.retrieved_chunks],
+            "is_offline": False
+        }
+    except (QuotaExhaustedError, RuntimeError):
+        return retrieve_only(question=req.query, collection_name=collection)
+
+
+class PlanGenerateRequest(BaseModel):
+    student_id: str
+    target_companies: list[str]
+    available_time: str
+    skills: str
+    message: str | None = None
+
+@app.post("/api/plan/generate")
+async def api_plan_generate(req: PlanGenerateRequest):
+    state = {
+        "student_id": req.student_id,
+        "messages": [{"role": "user", "content": req.message or f"Generate a study plan for {', '.join(req.target_companies)} with {req.available_time} focusing on {req.skills}."}]
+    }
+    with get_session() as db:
+        profile = db.query(StudentProfile).filter_by(student_id=req.student_id).first()
+        if profile:
+            profile.target_companies = req.target_companies
+            profile.available_time = req.available_time
+            db.commit()
+    
+    result = planner_node(state)
+    plan_json = result.get("current_plan")
+    
+    with get_session() as db:
+        db.query(StudyPlan).filter_by(student_id=req.student_id).update({"is_active": False})
+        if plan_json:
+            plan = StudyPlan(student_id=req.student_id, plan_json=plan_json, is_active=True)
+            db.add(plan)
+        db.commit()
+        
+    return {"plan": plan_json}
+
+@app.get("/api/plan/{student_id}")
+async def get_plan(student_id: str):
+    with get_session() as db:
+        plan = db.query(StudyPlan).filter_by(student_id=student_id, is_active=True).order_by(StudyPlan.id.desc()).first()
+        if plan:
+            return {"plan": plan.plan_json}
+        return {"plan": None}
+
+
+class ProgressSubmitRequest(BaseModel):
+    student_id: str
+    topic: str
+    score: int
+
+@app.post("/api/progress/submit")
+async def api_progress_submit(req: ProgressSubmitRequest):
+    from app.agents.progress import STRUGGLE_THRESHOLD, MASTERY_THRESHOLD, _evaluate_persistent_status
+    is_struggle = req.score < STRUGGLE_THRESHOLD
+    is_mastery = req.score >= MASTERY_THRESHOLD
+    with get_session() as db:
+        log = PerformanceLog(
+            student_id=req.student_id,
+            topic=req.topic,
+            score=req.score,
+            is_struggle=is_struggle,
+            is_mastery=is_mastery
+        )
+        db.add(log)
+        db.commit()
+        
+        signal = "struggle" if is_struggle else "mastery" if is_mastery else "neutral"
+        
+        persistent_status = _evaluate_persistent_status(db, req.student_id, req.topic)
+        profile = db.query(StudentProfile).filter_by(student_id=req.student_id).first()
+        if persistent_status and profile:
+            sp = profile.skill_profile or {}
+            sp = dict(sp)
+            sp[req.topic] = persistent_status
+            profile.skill_profile = sp
+            db.commit()
+        
+        return {"signal": signal, "skill_profile": profile.skill_profile if profile else {}}
+
+
+@app.get("/api/progress/{student_id}")
+async def get_progress(student_id: str):
+    with get_session() as db:
+        recent_logs = db.query(PerformanceLog).filter_by(student_id=student_id).order_by(PerformanceLog.timestamp.desc()).all()
+        return {"logs": [{"topic": l.topic, "score": l.score, "timestamp": l.timestamp.isoformat(), "is_struggle": l.is_struggle, "is_mastery": l.is_mastery} for l in recent_logs]}
+
+
+from datetime import datetime
+
+class ReminderRequest(BaseModel):
+    student_id: str
+    message: str
+    due_at_iso: str
+
+@app.post("/api/reminders")
+async def create_reminder(req: ReminderRequest):
+    from app.scheduler.notifier import schedule_reminder
+    due_at = datetime.fromisoformat(req.due_at_iso.replace('Z', '+00:00'))
+    with get_session() as db:
+        n = Notification(student_id=req.student_id, message=req.message, due_at=due_at)
+        db.add(n)
+        db.commit()
+        db.refresh(n)
+        schedule_reminder(n.id, n.due_at)
+        return {"id": n.id, "status": "scheduled"}
+
+
+@app.get("/api/reminders/{student_id}")
+async def get_reminders(student_id: str):
+    with get_session() as db:
+        notifications = db.query(Notification).filter_by(student_id=student_id).order_by(Notification.due_at.asc()).all()
+        return {"reminders": [{"id": n.id, "message": n.message, "due_at": n.due_at.isoformat(), "status": n.status} for n in notifications]}
+
+
+@app.delete("/api/reminders/{id}")
+async def delete_reminder(id: int):
+    with get_session() as db:
+        n = db.query(Notification).filter_by(id=id).first()
+        if n:
+            n.status = "cancelled"
+            db.commit()
+            from app.scheduler.notifier import scheduler
+            job_id = f"notification_{id}"
+            if scheduler.get_job(job_id):
+                scheduler.remove_job(job_id)
+            return {"status": "cancelled"}
+        raise HTTPException(404, "Reminder not found")
+
+
+class ProfileRequest(BaseModel):
+    target_companies: list[str]
+    available_time: str
+
+@app.put("/api/profile/{student_id}")
+async def update_profile(student_id: str, req: ProfileRequest):
+    with get_session() as db:
+        profile = db.query(StudentProfile).filter_by(student_id=student_id).first()
+        if profile:
+            profile.target_companies = req.target_companies
+            profile.available_time = req.available_time
+            db.commit()
+            return {"status": "updated"}
+        raise HTTPException(404, "Profile not found")
+
+
+@app.get("/api/health/status")
+async def health_status():
+    db_ok = True
+    try:
+        from sqlalchemy import text
+        with get_session() as db:
+            db.execute(text("SELECT 1"))
+    except:
+        db_ok = False
+        
+    kb_ok = True
+    try:
+        from app.rag.retriever import _get_chroma_client
+        chroma = _get_chroma_client(settings.chroma_persist_dir)
+        kb_ok = len(chroma.list_collections()) > 0
+    except:
+        kb_ok = False
+        
+    scheduler_ok = True
+    try:
+        from app.scheduler.notifier import scheduler
+        scheduler_ok = scheduler.running
+    except:
+        scheduler_ok = False
+        
+    gemini_ok = True
+    try:
+        from app.llm.provider import get_provider
+        provider = get_provider()
+        if not provider:
+            gemini_ok = False
+    except:
+        gemini_ok = False
+        
+    return {
+        "database": db_ok,
+        "knowledge_base": kb_ok,
+        "scheduler": scheduler_ok,
+        "gemini": gemini_ok
+    }

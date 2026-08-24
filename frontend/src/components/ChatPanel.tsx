@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Send, Loader2, Info } from 'lucide-react';
+import { API_BASE } from '../lib/api';
 
 interface ChatPanelProps {
   studentId: string;
@@ -16,7 +17,7 @@ export default function ChatPanel({ studentId, threadId, onPlanUpdate }: ChatPan
 
   useEffect(() => {
     // Load initial thread state
-    fetch(`http://localhost:8000/api/thread/${threadId}`)
+    fetch(`${API_BASE}/api/thread/${threadId}`)
       .then(res => res.json())
       .then(data => {
         if (data.messages) setMessages(data.messages);
@@ -40,7 +41,7 @@ export default function ChatPanel({ studentId, threadId, onPlanUpdate }: ChatPan
     setActivityIndicator('Routing...');
 
     try {
-      const res = await fetch('http://localhost:8000/api/chat', {
+      const res = await fetch(`${API_BASE}/api/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: userMsg.content, thread_id: threadId, student_id: studentId })
