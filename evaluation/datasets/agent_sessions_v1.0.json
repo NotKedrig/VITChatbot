@@ -1,0 +1,443 @@
+[
+  {
+    "session_id": "exp3_session_01",
+    "turns": [
+      {
+        "turn_id": "t1",
+        "user_message": "What is the minimum CGPA required to be eligible for campus placement at Aether Robotics?",
+        "task_type": "company_research",
+        "requires_retrieval": true,
+        "expected_facts": [
+          "7.0 minimum",
+          "No relaxation"
+        ]
+      },
+      {
+        "turn_id": "t2",
+        "user_message": "Please create a study plan focusing on arrays.",
+        "task_type": "planner",
+        "requires_retrieval": false
+      },
+      {
+        "turn_id": "t3",
+        "user_message": "I took a arrays test and scored 40%.",
+        "task_type": "progress",
+        "requires_retrieval": false,
+        "expected_topic": "arrays",
+        "expected_score": 40
+      }
+    ]
+  },
+  {
+    "session_id": "exp3_session_02",
+    "turns": [
+      {
+        "turn_id": "t1",
+        "user_message": "Which programming languages are used by the Perception and Planning Engineers at Aether Robotics?",
+        "task_type": "company_research",
+        "requires_retrieval": true,
+        "expected_facts": [
+          "Python",
+          "C++"
+        ]
+      },
+      {
+        "turn_id": "t2",
+        "user_message": "Please create a study plan focusing on OOD.",
+        "task_type": "planner",
+        "requires_retrieval": false
+      },
+      {
+        "turn_id": "t3",
+        "user_message": "I took a OOD test and scored 43%.",
+        "task_type": "progress",
+        "requires_retrieval": false,
+        "expected_topic": "OOD",
+        "expected_score": 43
+      }
+    ]
+  },
+  {
+    "session_id": "exp3_session_03",
+    "turns": [
+      {
+        "turn_id": "t1",
+        "user_message": "What topics will be covered in the technical interview for the Embedded Software Engineer role at Aether?",
+        "task_type": "company_research",
+        "requires_retrieval": true,
+        "expected_facts": [
+          "memory management",
+          "interrupt handling",
+          "mutex and semaphore concepts",
+          "debugging exercise"
+        ]
+      },
+      {
+        "turn_id": "t2",
+        "user_message": "Please create a study plan focusing on C++.",
+        "task_type": "planner",
+        "requires_retrieval": false
+      },
+      {
+        "turn_id": "t3",
+        "user_message": "I took a C++ test and scored 46%.",
+        "task_type": "progress",
+        "requires_retrieval": false,
+        "expected_topic": "C++",
+        "expected_score": 46
+      }
+    ]
+  },
+  {
+    "session_id": "exp3_session_04",
+    "turns": [
+      {
+        "turn_id": "t1",
+        "user_message": "Which Real-Time Operating System is used on most Aether robot controller boards?",
+        "task_type": "company_research",
+        "requires_retrieval": true,
+        "expected_facts": [
+          "FreeRTOS"
+        ]
+      },
+      {
+        "turn_id": "t2",
+        "user_message": "Please create a study plan focusing on quant.",
+        "task_type": "planner",
+        "requires_retrieval": false
+      },
+      {
+        "turn_id": "t3",
+        "user_message": "I took a quant test and scored 49%.",
+        "task_type": "progress",
+        "requires_retrieval": false,
+        "expected_topic": "quant",
+        "expected_score": 49
+      }
+    ]
+  },
+  {
+    "session_id": "exp3_session_05",
+    "turns": [
+      {
+        "turn_id": "t1",
+        "user_message": "How many questions are in the Quantitative Aptitude section of the NovaTech online assessment?",
+        "task_type": "company_research",
+        "requires_retrieval": true,
+        "expected_facts": [
+          "20 questions"
+        ]
+      },
+      {
+        "turn_id": "t2",
+        "user_message": "Please create a study plan focusing on Python.",
+        "task_type": "planner",
+        "requires_retrieval": false
+      },
+      {
+        "turn_id": "t3",
+        "user_message": "I took a Python test and scored 52%.",
+        "task_type": "progress",
+        "requires_retrieval": false,
+        "expected_topic": "Python",
+        "expected_score": 52
+      }
+    ]
+  },
+  {
+    "session_id": "exp3_session_06",
+    "turns": [
+      {
+        "turn_id": "t1",
+        "user_message": "Are students with backlogs allowed to participate in the NovaTech campus drive?",
+        "task_type": "company_research",
+        "requires_retrieval": true,
+        "expected_facts": [
+          "Zero active backlogs",
+          "Historical backlogs that have been cleared are acceptable"
+        ]
+      },
+      {
+        "turn_id": "t2",
+        "user_message": "Please create a study plan focusing on system design.",
+        "task_type": "planner",
+        "requires_retrieval": false
+      },
+      {
+        "turn_id": "t3",
+        "user_message": "I took a system design test and scored 55%.",
+        "task_type": "progress",
+        "requires_retrieval": false,
+        "expected_topic": "system design",
+        "expected_score": 55
+      }
+    ]
+  },
+  {
+    "session_id": "exp3_session_07",
+    "turns": [
+      {
+        "turn_id": "t1",
+        "user_message": "How long is the probation period at NovaTech and how many days of leave am I entitled to during it?",
+        "task_type": "company_research",
+        "requires_retrieval": true,
+        "expected_facts": [
+          "6-month probation",
+          "6 days"
+        ]
+      },
+      {
+        "turn_id": "t2",
+        "user_message": "Please create a study plan focusing on graphs.",
+        "task_type": "planner",
+        "requires_retrieval": false
+      },
+      {
+        "turn_id": "t3",
+        "user_message": "I took a graphs test and scored 58%.",
+        "task_type": "progress",
+        "requires_retrieval": false,
+        "expected_topic": "graphs",
+        "expected_score": 58
+      }
+    ]
+  },
+  {
+    "session_id": "exp3_session_08",
+    "turns": [
+      {
+        "turn_id": "t1",
+        "user_message": "Does NovaTech disburse salaries to any bank account, or is there a specific partner bank?",
+        "task_type": "company_research",
+        "requires_retrieval": true,
+        "expected_facts": [
+          "partner bank",
+          "HDFC Bank"
+        ]
+      },
+      {
+        "turn_id": "t2",
+        "user_message": "Please create a study plan focusing on DP.",
+        "task_type": "planner",
+        "requires_retrieval": false
+      },
+      {
+        "turn_id": "t3",
+        "user_message": "I took a DP test and scored 61%.",
+        "task_type": "progress",
+        "requires_retrieval": false,
+        "expected_topic": "DP",
+        "expected_score": 61
+      }
+    ]
+  },
+  {
+    "session_id": "exp3_session_09",
+    "turns": [
+      {
+        "turn_id": "t1",
+        "user_message": "I am an MCA student. Am I eligible to apply for engineering roles at Meridian FinTech?",
+        "task_type": "company_research",
+        "requires_retrieval": true,
+        "expected_facts": [
+          "does not recruit from MCA",
+          "not considered"
+        ]
+      },
+      {
+        "turn_id": "t2",
+        "user_message": "Please create a study plan focusing on SQL.",
+        "task_type": "planner",
+        "requires_retrieval": false
+      },
+      {
+        "turn_id": "t3",
+        "user_message": "I took a SQL test and scored 64%.",
+        "task_type": "progress",
+        "requires_retrieval": false,
+        "expected_topic": "SQL",
+        "expected_score": 64
+      }
+    ]
+  },
+  {
+    "session_id": "exp3_session_10",
+    "turns": [
+      {
+        "turn_id": "t1",
+        "user_message": "What is the total compensation package for a Quality Assurance Engineer at Meridian FinTech?",
+        "task_type": "company_research",
+        "requires_retrieval": true,
+        "expected_facts": [
+          "8 LPA",
+          "fixed"
+        ]
+      },
+      {
+        "turn_id": "t2",
+        "user_message": "Please create a study plan focusing on OS.",
+        "task_type": "planner",
+        "requires_retrieval": false
+      },
+      {
+        "turn_id": "t3",
+        "user_message": "I took a OS test and scored 67%.",
+        "task_type": "progress",
+        "requires_retrieval": false,
+        "expected_topic": "OS",
+        "expected_score": 67
+      }
+    ]
+  },
+  {
+    "session_id": "exp3_session_11",
+    "turns": [
+      {
+        "turn_id": "t1",
+        "user_message": "What are the primary programming languages used for backend services at Meridian FinTech?",
+        "task_type": "company_research",
+        "requires_retrieval": true,
+        "expected_facts": [
+          "Java 21",
+          "Kotlin"
+        ]
+      },
+      {
+        "turn_id": "t2",
+        "user_message": "Please create a study plan focusing on networking.",
+        "task_type": "planner",
+        "requires_retrieval": false
+      },
+      {
+        "turn_id": "t3",
+        "user_message": "I took a networking test and scored 70%.",
+        "task_type": "progress",
+        "requires_retrieval": false,
+        "expected_topic": "networking",
+        "expected_score": 70
+      }
+    ]
+  },
+  {
+    "session_id": "exp3_session_12",
+    "turns": [
+      {
+        "turn_id": "t1",
+        "user_message": "What three core values guide hiring and performance decisions at Meridian FinTech?",
+        "task_type": "company_research",
+        "requires_retrieval": true,
+        "expected_facts": [
+          "Customer obsession",
+          "Speed of execution",
+          "Frugal innovation"
+        ]
+      },
+      {
+        "turn_id": "t2",
+        "user_message": "Please create a study plan focusing on testing.",
+        "task_type": "planner",
+        "requires_retrieval": false
+      },
+      {
+        "turn_id": "t3",
+        "user_message": "I took a testing test and scored 73%.",
+        "task_type": "progress",
+        "requires_retrieval": false,
+        "expected_topic": "testing",
+        "expected_score": 73
+      }
+    ]
+  },
+  {
+    "session_id": "exp3_session_13",
+    "turns": [
+      {
+        "turn_id": "t1",
+        "user_message": "If I am asked to design a payment processing system at Meridian, what specific failure scenario should I address?",
+        "task_type": "company_research",
+        "requires_retrieval": true,
+        "expected_facts": [
+          "payment gateway timeout",
+          "idempotency key",
+          "retry with exponential backoff"
+        ]
+      },
+      {
+        "turn_id": "t2",
+        "user_message": "Please create a study plan focusing on embedded.",
+        "task_type": "planner",
+        "requires_retrieval": false
+      },
+      {
+        "turn_id": "t3",
+        "user_message": "I took a embedded test and scored 76%.",
+        "task_type": "progress",
+        "requires_retrieval": false,
+        "expected_topic": "embedded",
+        "expected_score": 76
+      }
+    ]
+  },
+  {
+    "session_id": "exp3_session_14",
+    "turns": [
+      {
+        "turn_id": "t1",
+        "user_message": "What algorithm choices should I discuss if asked to design a rate limiter in the Meridian interview?",
+        "task_type": "company_research",
+        "requires_retrieval": true,
+        "expected_facts": [
+          "token bucket",
+          "sliding window log",
+          "sliding window counter"
+        ]
+      },
+      {
+        "turn_id": "t2",
+        "user_message": "Please create a study plan focusing on robotics.",
+        "task_type": "planner",
+        "requires_retrieval": false
+      },
+      {
+        "turn_id": "t3",
+        "user_message": "I took a robotics test and scored 79%.",
+        "task_type": "progress",
+        "requires_retrieval": false,
+        "expected_topic": "robotics",
+        "expected_score": 79
+      }
+    ]
+  },
+  {
+    "session_id": "exp3_session_15",
+    "turns": [
+      {
+        "turn_id": "t1",
+        "user_message": "Are design patterns important for the object-oriented design round at NovaTech? Can you give examples?",
+        "task_type": "company_research",
+        "requires_retrieval": true,
+        "expected_facts": [
+          "Strategy",
+          "Observer",
+          "Factory",
+          "Singleton",
+          "at least one design pattern"
+        ]
+      },
+      {
+        "turn_id": "t2",
+        "user_message": "Please create a study plan focusing on logic.",
+        "task_type": "planner",
+        "requires_retrieval": false
+      },
+      {
+        "turn_id": "t3",
+        "user_message": "I took a logic test and scored 82%.",
+        "task_type": "progress",
+        "requires_retrieval": false,
+        "expected_topic": "logic",
+        "expected_score": 82
+      }
+    ]
+  }
+]

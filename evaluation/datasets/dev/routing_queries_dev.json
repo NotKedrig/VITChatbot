@@ -1,0 +1,102 @@
+[
+  {
+    "query_id": "dev_001",
+    "utterance": "What's the required CGPA for Meridian?",
+    "expected_agent": "company_research"
+  },
+  {
+    "query_id": "dev_002",
+    "utterance": "Does NovaTech have any active backlog restrictions?",
+    "expected_agent": "company_research"
+  },
+  {
+    "query_id": "dev_003",
+    "utterance": "Tell me about the interview process for Aether Robotics.",
+    "expected_agent": "company_research"
+  },
+  {
+    "query_id": "dev_004",
+    "utterance": "What is the CTC for a Software Engineer at NovaTech?",
+    "expected_agent": "company_research"
+  },
+  {
+    "query_id": "dev_005",
+    "utterance": "Which skills should I prepare for the Meridian fintech role?",
+    "expected_agent": "company_research"
+  },
+  {
+    "query_id": "dev_006",
+    "utterance": "Can you generate a study plan for data structures?",
+    "expected_agent": "planner"
+  },
+  {
+    "query_id": "dev_007",
+    "utterance": "I want to revise my timetable to include more OS concepts.",
+    "expected_agent": "planner"
+  },
+  {
+    "query_id": "dev_008",
+    "utterance": "What should I study for the next two weeks to prepare for Aether?",
+    "expected_agent": "planner"
+  },
+  {
+    "query_id": "dev_009",
+    "utterance": "Create a roadmap for my upcoming placement drives.",
+    "expected_agent": "planner"
+  },
+  {
+    "query_id": "dev_010",
+    "utterance": "Organize my syllabus for the quantitative aptitude section.",
+    "expected_agent": "planner"
+  },
+  {
+    "query_id": "dev_011",
+    "utterance": "I completely failed the mock test for dynamic programming.",
+    "expected_agent": "progress"
+  },
+  {
+    "query_id": "dev_012",
+    "utterance": "I just finished the linked list chapter.",
+    "expected_agent": "progress"
+  },
+  {
+    "query_id": "dev_013",
+    "utterance": "I am struggling to understand graphs and DFS.",
+    "expected_agent": "progress"
+  },
+  {
+    "query_id": "dev_014",
+    "utterance": "What is my current score in DBMS concepts?",
+    "expected_agent": "progress"
+  },
+  {
+    "query_id": "dev_015",
+    "utterance": "My performance in the aptitude test was surprisingly good.",
+    "expected_agent": "progress"
+  },
+  {
+    "query_id": "dev_016",
+    "utterance": "Remind me to submit my resume by Friday.",
+    "expected_agent": "notification"
+  },
+  {
+    "query_id": "dev_017",
+    "utterance": "Set an alarm for 8 AM tomorrow for the online assessment.",
+    "expected_agent": "notification"
+  },
+  {
+    "query_id": "dev_018",
+    "utterance": "Alert me when the NovaTech application deadline is close.",
+    "expected_agent": "notification"
+  },
+  {
+    "query_id": "dev_019",
+    "utterance": "Can you set a deadline for me to finish trees by Sunday?",
+    "expected_agent": "notification"
+  },
+  {
+    "query_id": "dev_020",
+    "utterance": "Notify me 10 minutes before the pre-placement talk.",
+    "expected_agent": "notification"
+  }
+]

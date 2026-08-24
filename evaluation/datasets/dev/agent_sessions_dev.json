@@ -1,0 +1,132 @@
+[
+  {
+    "session_id": "dev_session_1",
+    "turns": [
+      {
+        "turn_id": "t1",
+        "user_message": "What is the CTC for a Quality Assurance Engineer at Meridian FinTech?",
+        "task_type": "company_research",
+        "requires_retrieval": true,
+        "expected_facts": ["8 LPA", "fixed"]
+      },
+      {
+        "turn_id": "t2",
+        "user_message": "Please make me a study plan focusing on Java and Kotlin for Meridian.",
+        "task_type": "planner",
+        "requires_retrieval": false
+      },
+      {
+        "turn_id": "t3",
+        "user_message": "I just did a Java mock test and scored 45%.",
+        "task_type": "progress",
+        "requires_retrieval": false,
+        "expected_topic": "Java",
+        "expected_score": 45
+      }
+    ]
+  },
+  {
+    "session_id": "dev_session_2",
+    "turns": [
+      {
+        "turn_id": "t1",
+        "user_message": "Are backlogs allowed for the NovaTech campus drive?",
+        "task_type": "company_research",
+        "requires_retrieval": true,
+        "expected_facts": ["Zero active backlogs"]
+      },
+      {
+        "turn_id": "t2",
+        "user_message": "Generate a curriculum for me to prepare for object-oriented design patterns.",
+        "task_type": "planner",
+        "requires_retrieval": false
+      },
+      {
+        "turn_id": "t3",
+        "user_message": "I finished my OOD test and got 95%.",
+        "task_type": "progress",
+        "requires_retrieval": false,
+        "expected_topic": "OOD",
+        "expected_score": 95
+      }
+    ]
+  },
+  {
+    "session_id": "dev_session_3",
+    "turns": [
+      {
+        "turn_id": "t1",
+        "user_message": "What minimum CGPA is required for Aether Robotics?",
+        "task_type": "company_research",
+        "requires_retrieval": true,
+        "expected_facts": ["7.0 minimum"]
+      },
+      {
+        "turn_id": "t2",
+        "user_message": "I need a study plan for embedded systems and C++.",
+        "task_type": "planner",
+        "requires_retrieval": false
+      },
+      {
+        "turn_id": "t3",
+        "user_message": "I practiced C++ pointers and scored 80%.",
+        "task_type": "progress",
+        "requires_retrieval": false,
+        "expected_topic": "C++ pointers",
+        "expected_score": 80
+      }
+    ]
+  },
+  {
+    "session_id": "dev_session_4",
+    "turns": [
+      {
+        "turn_id": "t1",
+        "user_message": "How many questions are in the Quantitative Aptitude section for NovaTech?",
+        "task_type": "company_research",
+        "requires_retrieval": true,
+        "expected_facts": ["20 questions"]
+      },
+      {
+        "turn_id": "t2",
+        "user_message": "Create a timetable for me to practice quantitative aptitude.",
+        "task_type": "planner",
+        "requires_retrieval": false
+      },
+      {
+        "turn_id": "t3",
+        "user_message": "I took a quant test and got 30%. I'm struggling.",
+        "task_type": "progress",
+        "requires_retrieval": false,
+        "expected_topic": "quant",
+        "expected_score": 30
+      }
+    ]
+  },
+  {
+    "session_id": "dev_session_5",
+    "turns": [
+      {
+        "turn_id": "t1",
+        "user_message": "Which languages are used by Perception and Planning Engineers at Aether?",
+        "task_type": "company_research",
+        "requires_retrieval": true,
+        "expected_facts": ["Python", "C++"]
+      },
+      {
+        "turn_id": "t2",
+        "user_message": "Can you build a routine to learn Python for perception engineering?",
+        "task_type": "planner",
+        "requires_retrieval": false
+      },
+      {
+        "turn_id": "t3",
+        "user_message": "My recent Python score was 90%.",
+        "task_type": "progress",
+        "requires_retrieval": false,
+        "expected_topic": "Python",
+        "expected_score": 90
+      }
+    ]
+  }
+]

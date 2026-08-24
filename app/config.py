@@ -69,7 +69,7 @@ class Settings(BaseSettings):
     )
 
     llm_model_name: str = Field(
-        default="gemini-3.6-flash",
+        default="gemini-3.1-flash-lite",
         description=(
             "Fully-qualified model name / version string (e.g. 'gemini-3.6-flash').  "
             "Recorded verbatim in every results CSV row and LLM-call log entry to "
