@@ -1,0 +1,3 @@
+metric,sample_size,supervisor,rule,test_statistic,p_value,effect_size,significant
+overall_accuracy,20,1.0,0.85,0.0,0.25,7.0,False
+paired_latency_ms,20,14649.546230005217,0.11108499602414668,0.0,1.9073486328125e-06,,True

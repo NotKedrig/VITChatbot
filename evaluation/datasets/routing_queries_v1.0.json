@@ -1,0 +1,102 @@
+[
+  {
+    "query_id": "exp2_001",
+    "utterance": "Can you give me the exact number of interview rounds for the Aether hardware engineer role?",
+    "expected_agent": "company_research"
+  },
+  {
+    "query_id": "exp2_002",
+    "utterance": "Is the probation period at NovaTech completely unpaid?",
+    "expected_agent": "company_research"
+  },
+  {
+    "query_id": "exp2_003",
+    "utterance": "What is the maximum active backlog count permitted at Meridian FinTech?",
+    "expected_agent": "company_research"
+  },
+  {
+    "query_id": "exp2_004",
+    "utterance": "Are any specific object-oriented design patterns asked during the NovaTech technical round?",
+    "expected_agent": "company_research"
+  },
+  {
+    "query_id": "exp2_005",
+    "utterance": "Do you have any stats on the average CTC offered to electronics students at Aether?",
+    "expected_agent": "company_research"
+  },
+  {
+    "query_id": "exp2_006",
+    "utterance": "Please make me a three-week schedule focused entirely on mastering dynamic programming and greedy algorithms.",
+    "expected_agent": "planner"
+  },
+  {
+    "query_id": "exp2_007",
+    "utterance": "I need to revise my timetable because I have a mock test coming up this weekend.",
+    "expected_agent": "planner"
+  },
+  {
+    "query_id": "exp2_008",
+    "utterance": "Can you map out what I should study to get ready for the cognitive assessment next month?",
+    "expected_agent": "planner"
+  },
+  {
+    "query_id": "exp2_009",
+    "utterance": "Help me build a daily routine for practicing quantitative aptitude questions.",
+    "expected_agent": "planner"
+  },
+  {
+    "query_id": "exp2_010",
+    "utterance": "What topics should I add to my curriculum to improve my systems design knowledge?",
+    "expected_agent": "planner"
+  },
+  {
+    "query_id": "exp2_011",
+    "utterance": "I am totally stuck on the sliding window problems and can't seem to get them right.",
+    "expected_agent": "progress"
+  },
+  {
+    "query_id": "exp2_012",
+    "utterance": "I just got the results back from my first mock interview and I passed with flying colors!",
+    "expected_agent": "progress"
+  },
+  {
+    "query_id": "exp2_013",
+    "utterance": "My performance on the greedy algorithm quiz was 40% and I feel terrible.",
+    "expected_agent": "progress"
+  },
+  {
+    "query_id": "exp2_014",
+    "utterance": "How many questions have I successfully solved in the trees and graphs section so far?",
+    "expected_agent": "progress"
+  },
+  {
+    "query_id": "exp2_015",
+    "utterance": "I finally finished the complete OS and DBMS syllabus today.",
+    "expected_agent": "progress"
+  },
+  {
+    "query_id": "exp2_016",
+    "utterance": "Please alert me two days before the Meridian FinTech registration closes.",
+    "expected_agent": "notification"
+  },
+  {
+    "query_id": "exp2_017",
+    "utterance": "Set a reminder for me to review my behavioral answers tomorrow evening.",
+    "expected_agent": "notification"
+  },
+  {
+    "query_id": "exp2_018",
+    "utterance": "Can you notify me when the Aether robotics pre-placement talk starts?",
+    "expected_agent": "notification"
+  },
+  {
+    "query_id": "exp2_019",
+    "utterance": "I need a deadline set for this Friday to complete all my resume updates.",
+    "expected_agent": "notification"
+  },
+  {
+    "query_id": "exp2_020",
+    "utterance": "Ping me at 9 AM tomorrow so I remember to take the aptitude mock test.",
+    "expected_agent": "notification"
+  }
+]
