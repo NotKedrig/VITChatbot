@@ -3,6 +3,7 @@ import time
 from unittest.mock import MagicMock, patch
 from datetime import datetime, timezone, timedelta
 from dateutil.tz import gettz
+from freezegun import freeze_time
 
 from app.agents.notification import notification_node, _deterministic_parse
 from app.db.state.models import Base, StudentProfile, Notification
@@ -52,12 +53,12 @@ def mock_provider():
         mock_prov.return_value = provider_instance
         yield provider_instance
 
-def _set_mock_response(mock_provider, message, due_iso):
+def _set_mock_response(mock_provider, message, time_expr):
     mock_resp = MagicMock()
-    if due_iso:
-        mock_resp.text = f'{{"message": "{message}", "due_date_iso": "{due_iso}"}}'
+    if time_expr:
+        mock_resp.text = f'{{"message": "{message}", "time_expression": "{time_expr}"}}'
     else:
-        mock_resp.text = f'{{"message": "{message}", "due_date_iso": null}}'
+        mock_resp.text = f'{{"message": "{message}", "time_expression": null}}'
     mock_resp.model_name = "mock"
     mock_resp.model_version = "1"
     mock_resp.cached = True
@@ -69,9 +70,10 @@ def test_deterministic_parse_relative():
     assert dt is not None
     assert dt.tzinfo is not None
 
-def test_notification_node_deterministic(setup_db):
+@freeze_time("2026-08-25 10:00:00", tz_offset=0)
+def test_notification_node_deterministic_in_5_minutes(setup_db):
     state = {
-        "messages": [{"role": "user", "content": "Remind me in 1 minute to test notification"}],
+        "messages": [{"role": "user", "content": "Remind me in 5 minutes to test notification"}],
         "student_id": "test_student"
     }
     result = notification_node(state)
@@ -80,22 +82,38 @@ def test_notification_node_deterministic(setup_db):
     assert "Reminder scheduled" in result["messages"][0]["content"]
     assert not result["runtime_metadata"][0]["llm_fallback"]
     
-    # Verify DB
+    # Verify DB stores it exactly 5 minutes in the future UTC
     with setup_db() as db:
         notif = db.query(Notification).first()
         assert notif is not None
-        assert notif.student_id == "test_student"
+        db_due_at = notif.due_at.replace(tzinfo=timezone.utc) if notif.due_at.tzinfo is None else notif.due_at
+        
+        expected = datetime(2026, 8, 25, 10, 5, 0, tzinfo=timezone.utc)
+        assert db_due_at == expected
         assert notif.message == "test notification"
-        assert notif.status == "pending"
 
-def test_notification_node_llm_fallback(mock_provider, setup_db):
-    # E.g. next Friday evening (harder for simple regex)
-    future_time = (datetime.now(timezone.utc) + timedelta(days=2)).replace(microsecond=0)
-    iso_time = future_time.isoformat()
-    _set_mock_response(mock_provider, "Complex task", iso_time)
+@freeze_time("2026-08-25 10:00:00", tz_offset=0)
+def test_notification_node_deterministic_in_1_hour(setup_db):
+    state = {
+        "messages": [{"role": "user", "content": "Remind me in 1 hour to read a book"}],
+        "student_id": "test_student"
+    }
+    result = notification_node(state)
+    
+    with setup_db() as db:
+        notif = db.query(Notification).first()
+        db_due_at = notif.due_at.replace(tzinfo=timezone.utc) if notif.due_at.tzinfo is None else notif.due_at
+        
+        expected = datetime(2026, 8, 25, 11, 0, 0, tzinfo=timezone.utc)
+        assert db_due_at == expected
+
+@freeze_time("2026-08-25 10:00:00", tz_offset=0) # 10 AM UTC is 3:30 PM IST
+def test_notification_node_llm_fallback_a_week_from_now(mock_provider, setup_db):
+    # LLM extracts the relative time phrase, Python resolves it
+    _set_mock_response(mock_provider, "Complex task", "a week from now")
     
     state = {
-        "messages": [{"role": "user", "content": "Remind me next Friday evening to do Complex task"}],
+        "messages": [{"role": "user", "content": "Remind me a week from now to do Complex task"}],
         "student_id": "test_student_2"
     }
     result = notification_node(state)
@@ -107,9 +125,11 @@ def test_notification_node_llm_fallback(mock_provider, setup_db):
         notif = db.query(Notification).first()
         assert notif.message == "Complex task"
         
-        # SQLite returns naive datetime, convert for assert
         db_due_at = notif.due_at.replace(tzinfo=timezone.utc) if notif.due_at.tzinfo is None else notif.due_at
-        assert db_due_at == future_time
+        
+        # A week from now (Aug 25 -> Sep 1). Exact time 10:00:00 UTC.
+        expected = datetime(2026, 9, 1, 10, 0, 0, tzinfo=timezone.utc)
+        assert db_due_at == expected
 
 def test_scheduler_execution_and_duplicate_protection(setup_db):
     from app.scheduler.notifier import start_scheduler, dispatch_notification, scheduler
@@ -138,18 +158,17 @@ def test_scheduler_execution_and_duplicate_protection(setup_db):
     # Test duplicate protection
     dispatch_notification(notif_id) # Should return safely without error
     
+@freeze_time("2026-08-25 10:00:00", tz_offset=0)
 def test_invalid_past_time(setup_db):
     state = {
         "messages": [{"role": "user", "content": "Remind me 5 minutes ago to do something"}],
         "student_id": "test_student_3"
     }
-    # Deterministic parses it, but rejects because it's past, so falls back to LLM.
-    # We'll mock the LLM to also give a past date.
+    # LLM extracts the past time string
     with patch("app.agents.notification.get_provider") as mock_prov:
         prov = MagicMock()
         resp = MagicMock()
-        past_iso = (datetime.now(timezone.utc) - timedelta(minutes=5)).isoformat()
-        resp.text = f'{{"message": "do something", "due_date_iso": "{past_iso}"}}'
+        resp.text = f'{{"message": "do something", "time_expression": "5 minutes ago"}}'
         prov.complete.return_value = resp
         mock_prov.return_value = prov
         

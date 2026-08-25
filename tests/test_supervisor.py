@@ -17,7 +17,10 @@ from app.graph.workflow import build_graph
     ("I just finished the arrays chapter.", "progress"),
     ("Remind me to submit my resume tomorrow.", "notification"),
     ("Set an alert for the deadline.", "notification"),
-    ("Just saying hello", "company_research"), # Default fallback
+    ("Just saying hello", "out_of_scope"), # Default fallback
+    ("how to make dosa", "out_of_scope"),
+    ("what is the capital of France?", "out_of_scope"),
+    ("tell me a joke", "out_of_scope"),
 ])
 def test_rule_router_accuracy(utterance: str, expected: str):
     """Verify the rule router baseline correctly classifies standard phrases."""
@@ -72,6 +75,45 @@ def test_langgraph_routing_with_mock(mock_get_provider, mock_planner_node):
     messages = final_state.get("messages", [])
     assert len(messages) == 2
     assert "[STUB] Planner Agent" in messages[-1]["content"]
+
+@patch("app.agents.supervisor.get_provider")
+def test_langgraph_routing_out_of_scope(mock_get_provider):
+    """
+    Verify that an out of scope request correctly routes to the deterministic out_of_scope node
+    and does not trigger any LLM calls beyond the supervisor.
+    """
+    # Setup mock provider response for supervisor
+    mock_provider = MagicMock()
+    mock_response = MagicMock()
+    mock_response.text = "out_of_scope"
+    mock_response.cached = True
+    mock_response.model_name = "mock-model"
+    mock_response.model_version = "1.0"
+    mock_provider.complete.return_value = mock_response
+    mock_get_provider.return_value = mock_provider
+
+    graph = build_graph()
+    
+    initial_state = {
+        "messages": [{"role": "user", "content": "how to make dosa"}]
+    }
+
+    # Execute graph
+    final_state = graph.invoke(
+        initial_state, 
+        config={"configurable": {"thread_id": "test_routing_out_of_scope"}}
+    )
+
+    # Verify provider was called
+    mock_provider.complete.assert_called_once()
+    
+    # Verify the supervisor correctly updated the next_agent state
+    assert final_state["next_agent"] == "out_of_scope"
+    
+    # Verify the output message matches the deterministic rejection
+    messages = final_state.get("messages", [])
+    assert len(messages) == 2
+    assert "I'm designed to help with placement preparation" in messages[-1]["content"]
 
 
 # ---------------------------------------------------------------------------

@@ -49,7 +49,7 @@ export default function StudyPlanPage() {
         
         <div style={{ flex: '2 1 500px' }}>
           {data?.plan ? (
-            <StudyPlanView plan={data.plan} />
+            <StudyPlanView plan={data.plan} revisions={data.revisions} />
           ) : (
             <EmptyState 
               icon={GraduationCap}

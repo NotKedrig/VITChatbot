@@ -39,7 +39,7 @@ class _StructuredFormatter(logging.Formatter):
             f"timestamp={datetime.fromtimestamp(record.created, tz=timezone.utc).isoformat()}",
             f"level={record.levelname}",
             f"logger={record.name}",
-            f"message={self.formatMessage(record)}",
+            f"message={record.getMessage()}",
         ]
 
         # Append any extra fields attached to the record (e.g. via log_llm_call)

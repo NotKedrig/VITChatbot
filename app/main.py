@@ -136,11 +136,21 @@ async def chat_endpoint(req: ChatRequest):
     Invokes the multi-agent graph with the user's message.
     """
     config = {"configurable": {"thread_id": req.thread_id}}
+    
+    with get_session() as db:
+        active_plan = db.query(StudyPlan).filter_by(student_id=req.student_id, is_active=True).order_by(StudyPlan.id.desc()).first()
+        if active_plan:
+            current_plan = active_plan.plan_json
+        else:
+            current_plan = None
+
     input_state = {
         "messages": [{"role": "user", "content": req.message}],
         "student_id": req.student_id
     }
-    
+    if current_plan:
+        input_state["current_plan"] = current_plan
+        
     try:
         # LangGraph invoke processes the graph to END
         final_state = compiled_graph.invoke(input_state, config=config)
@@ -148,6 +158,16 @@ async def chat_endpoint(req: ChatRequest):
         # Build clean response (stripping runtime metadata and internal config)
         messages = final_state.get("messages", [])
         clean_messages = [{"role": msg.get("role"), "content": msg.get("content")} for msg in messages if isinstance(msg, dict)]
+        
+        # If the planner modified the plan during this turn, save it back to the DB
+        if final_state.get("progress_signal") in ["struggle", "mastery"]:
+            plan_json = final_state.get("current_plan")
+            if plan_json:
+                with get_session() as db:
+                    db.query(StudyPlan).filter_by(student_id=req.student_id).update({"is_active": False})
+                    new_plan = StudyPlan(student_id=req.student_id, plan_json=plan_json, is_active=True)
+                    db.add(new_plan)
+                    db.commit()
         
         return ChatResponse(
             messages=clean_messages,
@@ -276,9 +296,13 @@ async def api_plan_generate(req: PlanGenerateRequest):
 async def get_plan(student_id: str):
     with get_session() as db:
         plan = db.query(StudyPlan).filter_by(student_id=student_id, is_active=True).order_by(StudyPlan.id.desc()).first()
+        revisions = db.query(PlanRevisionLog).filter_by(student_id=student_id).order_by(PlanRevisionLog.timestamp.desc()).limit(10).all()
+        
+        rev_list = [{"triggering_signal": r.triggering_signal, "affected_topic": r.affected_topic, "reason": r.reason, "timestamp": r.timestamp.isoformat()} for r in revisions]
+        
         if plan:
-            return {"plan": plan.plan_json}
-        return {"plan": None}
+            return {"plan": plan.plan_json, "revisions": rev_list}
+        return {"plan": None, "revisions": rev_list}
 
 
 class ProgressSubmitRequest(BaseModel):
@@ -345,9 +369,10 @@ async def create_reminder(req: ReminderRequest):
 
 @app.get("/api/reminders/{student_id}")
 async def get_reminders(student_id: str):
+    from datetime import timezone
     with get_session() as db:
         notifications = db.query(Notification).filter_by(student_id=student_id).order_by(Notification.due_at.asc()).all()
-        return {"reminders": [{"id": n.id, "message": n.message, "due_at": n.due_at.isoformat(), "status": n.status} for n in notifications]}
+        return {"reminders": [{"id": n.id, "message": n.message, "due_at": n.due_at.replace(tzinfo=timezone.utc).isoformat() if not n.due_at.tzinfo else n.due_at.isoformat(), "status": n.status} for n in notifications]}
 
 
 @app.delete("/api/reminders/{id}")

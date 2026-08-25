@@ -42,10 +42,10 @@ def supervisor_node(state: AgentState) -> dict:
         decision = llm_response.text.strip().lower()
         decision = decision.strip("`'\" \n")
         
-        valid_agents = {"company_research", "planner", "progress", "notification"}
+        valid_agents = {"company_research", "planner", "progress", "notification", "out_of_scope"}
         if decision not in valid_agents:
-            logger.error(f"Supervisor produced invalid routing decision: {decision}. Defaulting to company_research.")
-            decision = "company_research"
+            logger.error(f"Supervisor produced invalid routing decision: {decision}. Defaulting to out_of_scope.")
+            decision = "out_of_scope"
             
         metadata = {
             "node": "supervisor",
@@ -57,7 +57,7 @@ def supervisor_node(state: AgentState) -> dict:
             
     except Exception as e:
         logger.error(f"Supervisor provider call failed: {e}")
-        decision = "company_research"  # Safe fallback
+        decision = "out_of_scope"  # Safe fallback
         metadata = {
             "node": "supervisor",
             "latency": time.perf_counter() - start_time,

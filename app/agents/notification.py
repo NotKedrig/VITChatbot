@@ -18,18 +18,26 @@ logger = logging.getLogger(__name__)
 
 class NotificationRequest(BaseModel):
     message: str = Field(description="The reminder content or task to be reminded about.")
-    due_date_iso: str = Field(description="The ISO-8601 UTC string for when the reminder should occur.")
+    time_expression: str = Field(description="The exact time expression provided by the user (e.g. 'in 5 minutes', 'tomorrow at 7 PM').")
+
+def _get_parse_settings() -> dict:
+    current_tz = gettz(settings.app_timezone) or timezone.utc
+    current_time_aware = datetime.now(current_tz)
+    relative_base = current_time_aware.replace(tzinfo=None)
+    
+    return {
+        "TIMEZONE": settings.app_timezone,
+        "RETURN_AS_TIMEZONE_AWARE": True,
+        "PREFER_DATES_FROM": "future",
+        "RELATIVE_BASE": relative_base
+    }
 
 def _deterministic_parse(text: str) -> tuple[datetime | None, str | None]:
     """
     Attempts to deterministically parse basic reminder time formats to save LLM calls.
     Returns (aware_datetime, matched_time_string) or (None, None).
     """
-    parse_settings = {
-        "TIMEZONE": settings.app_timezone,
-        "RETURN_AS_TIMEZONE_AWARE": True,
-        "PREFER_DATES_FROM": "future"
-    }
+    parse_settings = _get_parse_settings()
 
     # Pattern 1: "Remind me [time phrase] to [message]" or just "Remind me [time phrase]"
     match1 = re.search(r'(?i)remind me\s+(in\s+\d+\s+[a-z]+|tomorrow.*?|today at.*?|on\s+\w+.*?)(?:\s+to\s+|$)', text)
@@ -90,11 +98,9 @@ def notification_node(state: AgentState) -> dict:
     if not due_at:
         metadata["llm_fallback"] = True
         provider = get_provider()
-        now_iso = datetime.now(timezone.utc).isoformat()
         prompt = (
             f"Extract the reminder details from this text: '{user_text}'. "
-            f"The current UTC time is {now_iso}. The user's local timezone is {settings.app_timezone}. "
-            "Return the message to be reminded about, and the absolute UTC due_date_iso string."
+            "Return the message to be reminded about, and the time_expression exactly as written by the user. Do not guess the current time."
         )
         try:
             llm_response = provider.complete(
@@ -105,15 +111,12 @@ def notification_node(state: AgentState) -> dict:
             )
             parsed_data = json.loads(llm_response.text)
             message = parsed_data.get("message", "Reminder")
-            due_iso = parsed_data.get("due_date_iso")
+            time_expr = parsed_data.get("time_expression")
             
-            if due_iso:
-                due_at = datetime.fromisoformat(due_iso.replace("Z", "+00:00"))
-                # Ensure it has a timezone
-                if due_at.tzinfo is None:
-                    due_at = due_at.replace(tzinfo=timezone.utc)
-                else:
-                    due_at = due_at.astimezone(timezone.utc)
+            if time_expr:
+                dt = dateparser.parse(time_expr, settings=_get_parse_settings())
+                if dt:
+                    due_at = dt.astimezone(timezone.utc)
                     
             metadata.update({
                 "model_name": llm_response.model_name,

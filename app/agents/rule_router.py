@@ -26,4 +26,4 @@ def rule_route(utterance: str) -> str:
         return "company_research"
 
     # Default fallback
-    return "company_research"
+    return "out_of_scope"
